@@ -167,7 +167,7 @@ function CountryChange() {
    background-color: white;
 }
 </style>
- <script>
+ <!--script>
 /*var searchForm = document.getElementById('search');*/
 /*var seeSearchForm = document.getElementById('search');*/
 input=document.getElementsByTagName("input")[0]
@@ -227,7 +227,7 @@ onload=firstSearch
 input.oninput=firstSearch
 input.focus()
 onkeydown=function(){input.focus()}
-</script>
+</script-->
   
     
   <script>
@@ -488,18 +488,26 @@ function fetchBookmarks(){
   }
 }
 /***************************************************************************************get one where click???*/
-/*function fetchBookmark(){
+/*
+/*var searchForm = document.getElementById('search');*/
+/*var seeSearchForm = document.getElementById('search');*/
+input=document.getElementsByTagName("input")[0]
+
+d=document.getElementsByTagName("div")[0]
+
+// Fetch bookmarks
+search=function fetchBookmarks(){
   // Get bookmarks from localStorage
   let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Get output id
   let bookmarksResults = document.getElementById('bookmarksResults');
+bookmarksResults = [];
   // Build output
   bookmarksResults.innerHTML = '';
   for(let i = 0; i < bookmarks.length; i++){
-    if(){
     let name = bookmarks[i].name;
     let phone = bookmarks[i].phone;
-  
+    /*------------------------------------------look more*/
     let mail = bookmarks[i].mail;
     let url = bookmarks[i].url;
  
@@ -512,9 +520,110 @@ function fetchBookmarks(){
                                   ' <a onclick="deleteBookmark(\''+phone+mail+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
                                   '</h3>'+
                                   '</div>';
-    }                              
   }
+return bookmarksResults;
+}
+
+
+ 
+
+/*input.style.width="100%"*/
+
+ 
+
+ 
+
+/*base=[ ' Служебный номер АТС 35 Отдел автоматизации систем управления предприятием АТС 7700 48-500',
+
+ ' Дежурные водители водители 10 Транспортный цех бокс для автомобилей № 3 1876 68-501',
+
+ ' Петрова Лидия Николаевна Ведущий товаровед 25 Отдел материально-технического обеспечения №3- общий кабинет товароведов 6733 83-782 7-90-06',
+
+ 
+
+]*/
+
+ 
+
+/*search=function(pattern){
+
+var out=[]
+
+var re=new RegExp(pattern, "i")
+
+for(var i=0; i<base.length; i++){
+
+if(base[i].match(re)) {
+
+base[i]=base[i].replace(/((\d{4} \d{2}-\d{3})|(\d{4} \d{2}-\d{3} \d{1}-\d{2}-\d{2}))$/, "<b>$1</b>")
+
+out.push(base[i])
+
+  }
+
+ 
+
+ }
+
+return out
+
 }*/
+
+/* 
+
+firstSearch=function(){
+
+d.innerHTML=""
+
+input.style.color=null
+
+let bookmarksResults=search(input.value)
+
+if(bookmarksResults.length<1) return secondSearch()
+
+let str=bookmarksResults.join("<br><br>")
+
+d.innerHTML=str
+
+}
+
+ 
+
+secondSearch=function(){
+
+input.style.color="red"
+
+d.innerHTML="I don't know <b>"+input.value+"</b>"
+
+}
+
+onload=firstSearch
+
+input.oninput=firstSearch
+
+input.focus()
+
+onkeydown=function(){input.focus()}
+
+// Validate Form
+function validateForm(sName, sPhone, sMail, sUrl){
+  if(!sName || !sPhone ||!sMail || !sUrl){
+    alert('Please fill in the form');
+    return false;
+  }
+
+  let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  let regex = new RegExp(expression);
+
+  if(!sUrl.match(regex) || !sPhone.match(regex) ||!sMail.match(regex)){
+    alert('Please use a valid data!');
+    return false;
+  }
+
+  return true;
+}
+
+    */
 function search() {
     var input, a, i, ul, li, filter;
     input = document.getElementById('search');
