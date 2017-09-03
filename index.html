@@ -253,7 +253,7 @@ function fetchBookmarks(){
     let name = bookmarks[i].name;
     let phone = bookmarks[i].phone;
     /*------------------------------------------look more*/
-    let email = bookmarks[i].mail;
+    let email = bookmarks[i].email;
     let url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
@@ -285,7 +285,7 @@ function search() {
     }
 }
 // Validate Form
-function validateForm(siteName, sitePhone, siteEmail, siteUrl){
+/*function validateForm(siteName, sitePhone, siteEmail, siteUrl){
   if(!siteName || !sitePhone ||!siteEmail || !siteUrl){
     alert('Please fill in the form');
     return false;
@@ -299,7 +299,7 @@ function validateForm(siteName, sitePhone, siteEmail, siteUrl){
     return false;
   }
 
-  return true;
+  return true;*/
 }
 </script>
 <style>
