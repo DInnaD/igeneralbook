@@ -176,9 +176,9 @@ function saveBookmark(e){
   let siteEmail =document.getElementById('siteEmail').value;
   let siteUrl =document.getElementById('siteUrl').value;
 
-  if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
+  /*if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
     return false;
-  }
+  }*/
 
   let bookmark = {
     name: siteName,
@@ -257,13 +257,13 @@ function fetchBookmarks(){
     let url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h3>'+name+phone+email+url+
+                                  '<h7>'+name+ phone+ email+
                                   //---------------------------------------------------------------more
                                   ' <a class="btn btn-default" target="_blank" href="'++'" href="#">More</a> ' +
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
                                   ' <a onclick="editBookmark(\''+name+phone+email+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
                                   ' <a onclick="deleteBookmark(\''+phone+email+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
-                                  '</h3>'+
+                                  '</h7>'+
                                   '</div>';
   }
 }
