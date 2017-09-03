@@ -70,16 +70,15 @@ function CountryChange() {
 
 
 
-<!--*******************+code +add to span***********************************************************myFavorite-->
-<form action="#">
 
-  <input id="search" type="text" name="search" placeholder="Search.."></span> 
+
+  <input id="search" type="text" name="search" placeholder="Search.." onkeyup="search()"></span> 
      <button onclick="talk()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone" aria-hidden="true" ></i></button></span>
  
    <button onclick="stop()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone-slash" aria-hidden="true" ></i></button><!--*******************+code +add to span***********************************************************myFavorite-->
 <!--span><input type="submit" value="Submit"  /></span-->
    
-</form>  
+
 <hr>
         
   
@@ -134,14 +133,40 @@ function CountryChange() {
 
       <div class="row marketing">
         <div class="col-lg-12">
-          <div id="bookmarksResults"></div>
+          <<ul id="bookmarksResults"></ul><!--/div-->
+
+    
         </div>
       </div>
 
 
     </div> <!-- /container -->  
 
+<style>
 
+#search{
+    font-size: 18px;
+    font-family: "Arial";
+    border: 1px; solid-color: red;
+    padding: 5px;
+}
+
+.bookmarksResults{
+    list-style: none;
+}
+
+#bookmarksResults li a{
+    margin-top: -1px;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+#bookmarksResults li a:hover{
+   background-color: white;
+}
+</style>
  <script>
 /*var searchForm = document.getElementById('search');*/
 /*var seeSearchForm = document.getElementById('search');*/
@@ -172,7 +197,7 @@ d=document.getElementsByTagName("div")[0]
  
 ]*/
  
-search=function(pattern){
+/*search=function(pattern){
 var out=[]
 var re=new RegExp(pattern, "i")
 for(var i=0; i<bookmarksResults.length; i++){
@@ -183,7 +208,7 @@ out.push(bookmarksResults[i])
  
 }
 return out
-}
+}*/
  
 firstSearch=function(){
 d.innerHTML=""
@@ -490,6 +515,24 @@ function fetchBookmarks(){
     }                              
   }
 }*/
+function search() {
+    var input, a, i, ul, li, filter;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('bookmarksResults');
+    li = ul.getElementsByTagName('li');
+
+    for(i=0; i<li.length; i++){
+        a = li[i].getElementsByTagName("a")[0];
+        if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
+            li[i].style.display = "";
+        }
+        else{
+            li[i].style.display = "none";
+        }
+    }
+}
+    
 // Validate Form
 function validateForm(sName, sPhone, sMail, sUrl){
   if(!sName || !sPhone ||!sMail || !sUrl){
