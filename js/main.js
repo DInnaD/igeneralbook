@@ -5,14 +5,18 @@ document.getElementById('myForm').addEventListener('submit', saveBookmark);
 function saveBookmark(e){
   // Get form values
   var siteName =document.getElementById('siteName').value;
+  var siteUrl =document.getElementById('sitePhone').value;
+  var siteName =document.getElementById('siteEmail').value;
   var siteUrl =document.getElementById('siteUrl').value;
 
-  if(!validateForm(siteName, siteUrl)){
+  if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
     return false;
   }
 
   var bookmark = {
     name: siteName,
+    phone: sitePhone,
+    email: siteEmail,
     url: siteUrl
   }
 
@@ -52,12 +56,12 @@ function saveBookmark(e){
 }
 
 // Delete bookmark
-function deleteBookmark(url){
+function deleteBookmark(phone, mail, url){
   // Get bookmarks from localStorage
   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop throught bookmarks
   for(var i =0;i < bookmarks.length;i++){
-    if(bookmarks[i].url == url){
+    if(bookmarks[i].phone == phone || bookmarks[i].mail == mail || bookmarks[i].url == url){
       // Remove from array
       bookmarks.splice(i, 1);
     }
@@ -78,22 +82,28 @@ function fetchBookmarks(){
 
   // Build output
   bookmarksResults.innerHTML = '';
-  for(var i = 0; i < bookmarks.length; i++){
-    var name = bookmarks[i].name;
-    var url = bookmarks[i].url;
+  for(let i = 0; i < bookmarks.length; i++){
+    let name = bookmarks[i].name;
+    let phone = bookmarks[i].phone;
+    /*------------------------------------------look more*/
+    let mail = bookmarks[i].mail;
+    let url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h3>'+name+
+                                  '<h3>'+name+phone+
+                                  //---------------------------------------------------------------more
+                                  ' <a onclick="moreBookmark(\''+phone+mail+url+'\')" class="btn btn-danger" href="#">More</a> ' +
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
-                                  ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
+                                  ' <a onclick="editBookmark(\''+name+phone+mail+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
+                                  ' <a onclick="deleteBookmark(\''+phone+mail+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
                                   '</h3>'+
                                   '</div>';
   }
 }
 
 // Validate Form
-function validateForm(siteName, siteUrl){
-  if(!siteName || !siteUrl){
+function validateForm(siteName, sitePhone, siteMail, siteUrl){
+  if(!siteName || !sitePhone ||!siteMail || !siteUrl){
     alert('Please fill in the form');
     return false;
   }
