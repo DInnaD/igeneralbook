@@ -9,7 +9,7 @@ function saveBookmark(e){
   var siteName =document.getElementById('siteEmail').value;
   var siteUrl =document.getElementById('siteUrl').value;
 
-  if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
+  if(!validateForm(siteName, siteUrl)){
     return false;
   }
 
