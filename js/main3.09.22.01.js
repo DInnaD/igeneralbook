@@ -4,16 +4,16 @@ document.getElementById('myForm').addEventListener('submit', saveBookmark);
 // Save Bookmark
 function saveBookmark(e){
   // Get form values
-  var siteName =document.getElementById('siteName').value;
-  var siteUrl =document.getElementById('sitePhone').value;
-  var siteName =document.getElementById('siteEmail').value;
-  var siteUrl =document.getElementById('siteUrl').value;
+  let siteName =document.getElementById('siteName').value;
+  let sitePhone =document.getElementById('sitePhone').value;
+  let siteEmail =document.getElementById('siteEmail').value;
+  let siteUrl =document.getElementById('siteUrl').value;
 
-  if(!validateForm(siteName, siteUrl)){
+  if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
     return false;
   }
 
-  var bookmark = {
+  let bookmark = {
     name: siteName,
     phone: sitePhone,
     email: siteEmail,
@@ -31,14 +31,14 @@ function saveBookmark(e){
   // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === null){
     // Init array
-    var bookmarks = [];
+    let bookmarks = [];
     // Add to array
     bookmarks.push(bookmark);
     // Set to localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   } else {
     // Get bookmarks from localStorage
-    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     // Add bookmark to array
     bookmarks.push(bookmark);
     // Re-set back to localStorage
@@ -56,12 +56,12 @@ function saveBookmark(e){
 }
 
 // Delete bookmark
-function deleteBookmark(phone, mail, url){
+function deleteBookmark(phone, email, url){
   // Get bookmarks from localStorage
-  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop throught bookmarks
-  for(var i =0;i < bookmarks.length;i++){
-    if(bookmarks[i].phone == phone || bookmarks[i].mail == mail || bookmarks[i].url == url){
+  for(let i =0;i < bookmarks.length;i++){
+    if(bookmarks[i].phone == phone || bookmarks[i].email == email || bookmarks[i].url == url){
       // Remove from array
       bookmarks.splice(i, 1);
     }
@@ -76,9 +76,9 @@ function deleteBookmark(phone, mail, url){
 // Fetch bookmarks
 function fetchBookmarks(){
   // Get bookmarks from localStorage
-  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Get output id
-  var bookmarksResults = document.getElementById('bookmarksResults');
+  let bookmarksResults = document.getElementById('bookmarksResults');
 
   // Build output
   bookmarksResults.innerHTML = '';
@@ -86,16 +86,16 @@ function fetchBookmarks(){
     let name = bookmarks[i].name;
     let phone = bookmarks[i].phone;
     /*------------------------------------------look more*/
-    let mail = bookmarks[i].mail;
+    let email = bookmarks[i].mail;
     let url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h3>'+name+phone+mail+url+
+                                  '<h3>'+name+phone+email+url+
                                   //---------------------------------------------------------------more
                                   ' <a class="btn btn-default" target="_blank" href="'++'" href="#">More</a> ' +
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
-                                  ' <a onclick="editBookmark(\''+name+phone+mail+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
-                                  ' <a onclick="deleteBookmark(\''+phone+mail+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
+                                  ' <a onclick="editBookmark(\''+name+phone+email+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
+                                  ' <a onclick="deleteBookmark(\''+phone+email+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
                                   '</h3>'+
                                   '</div>';
   }
@@ -118,14 +118,14 @@ function search() {
     }
 }
 // Validate Form
-function validateForm(siteName, sitePhone, siteMail, siteUrl){
-  if(!siteName || !sitePhone ||!siteMail || !siteUrl){
+function validateForm(siteName, sitePhone, siteEmail, siteUrl){
+  if(!siteName || !sitePhone ||!siteEmail || !siteUrl){
     alert('Please fill in the form');
     return false;
   }
 
-  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-  var regex = new RegExp(expression);
+  let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  let regex = new RegExp(expression);
 
   if(!siteUrl.match(regex)){
     alert('Please use a valid URL');
