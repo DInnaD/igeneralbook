@@ -866,7 +866,15 @@ var utterance = new SpeechSynthesisUtterance('How about we say this now? This is
     synth.pause();
   }
   </script>
-            
+  <script src="https://use.fontawesome.com/053cca04b2.js"></script>
+ <script
+    src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+  <script src="js/jquery.js"></script>
+<!--script src="js/main.js"></script-->          
  <script>
 var countOfFields = 1; // Текущее число полей
 var curFieldNameId = 1; // Уникальное значение для атрибута name
@@ -955,7 +963,8 @@ function saveBookmark(e){
 // EDIT Bookmark
 function editBookmark(e, phone, email, url){
    // Test if bookmarks is null
-  if(localStorage.getItem('bookmarks') === !null){
+  if(localStorage.getItem('bookmarks') === null){
+  }else{
     // Init array
     var bookmarks = [];
     
@@ -1086,14 +1095,6 @@ function validateForm(siteName, sitePhone, siteEmail, siteUrl){
 }
 
 </script>
-<script src="https://use.fontawesome.com/053cca04b2.js"></script>
- <script
-    src="https://code.jquery.com/jquery-3.1.1.js"
-    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-    crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    
-  <script src="js/jquery.js"></script>
-<!--script src="js/main.js"></script-->
+
     </body>
 </html>
