@@ -1283,6 +1283,34 @@ function fetchBookmarks(){
                               
   }
 }
+/*
+<form name = "phonebookForm" id = "phonebookForm">
+<h4 id ="search">Search Phonebook: <input type = "text" id="inputIdSearch" onblur="search()">
+    <span id="searchResult"></span></h4>
+  <h4 id ="input">Add entry: <input type = "text" id="inputIdInput"></h4>
+  <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
+  </form>
+		<script>
+ myPhonebook = Array (
+Array(' Robert Mory ',' 07554035121 '),
+Array(' Susie Thompson ',' 0785430270 '))
+
+document.write("<pre>")
+ for (j = 0 ; j < myPhonebook.length ; ++j)
+ {
+ for (k = 0 ; k < myPhonebook.length ; ++k)
+ document.write(myPhonebook[j][k])
+ document.write("<br />")
+   }
+   document.write("</pre>")
+var search = function(){
+
+var searchInput = document.getElementById('inputIdSearch').value
+document.getElementById('searchResult').innerHTML = 
+      ("Searching for: " + searchInput + "...")
+document.writeln(myPhonebook.indexOf('searchInput'))
+</script>
+*/
 function search() {
     var input, a, i, div, ul, li, filter;
     input = document.getElementById('search');
