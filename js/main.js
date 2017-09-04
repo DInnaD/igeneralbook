@@ -49,15 +49,17 @@ function saveBookmark(e){
   e.preventDefault();
 }
 // EDIT Bookmark
+  document.getElementById('myForm1').addEventListener('submit', saveBookmark);
 function editBookmark(e, phone, email, url){
+  var bookmarks = [];
    // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === null){
     }else{
     // Init array
-    var bookmarks = [];
+    
     
     // Get bookmarks from localStorage
-    bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     
 //del
 // Loop throught bookmarks
@@ -103,7 +105,7 @@ function editBookmark(e, phone, email, url){
   
   
   // Clear form
-  document.getElementById('myForm').reset();
+  document.getElementById('myForm1').reset();
   // Re-fetch bookmarks
   fetchBookmarks();
   // Prevent form from submitting
