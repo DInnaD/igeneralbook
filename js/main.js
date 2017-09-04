@@ -96,7 +96,8 @@ function fetchBookmarks(){
     var url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h3>'+name+
+                                  '<h3>'+name+'<div class="toggle">' + '<div class="content">' + url+ '</div>'+                                  
+                                  ' <a class="toggler" class="btn btn-danger" href="#">More</a> ' + '</div>'+
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
                                   ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
                                   '</h3>'+
