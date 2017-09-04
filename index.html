@@ -59,7 +59,14 @@ document.writeln(myPhonebook.indexOf('searchInput'))
   <div id="contactform">
 
  <div class="container"  style="position: relative;">
-
+	 
+	 
+ <!--form name = "phonebookForm" id = "phonebookForm">
+<h4 id ="search">Search Phonebook: <input type = "text" id="inputIdSearch" onblur="search()">
+    <span id="searchResult"></span></h4>
+  <h4 id ="input">Add entry: <input type = "text" id="inputIdInput"></h4>
+  <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
+  </form-->
 
 
   <input id="search" type="text" name="search" placeholder="Search.." onkeyup="search()"></span> 
@@ -114,12 +121,7 @@ document.writeln(myPhonebook.indexOf('searchInput'))
     max-width: 100%; ">
       
  <div class="container">
- <form name = "phonebookForm" id = "phonebookForm">
-<h4 id ="search">Search Phonebook: <input type = "text" id="inputIdSearch" onblur="search()">
-    <span id="searchResult"></span></h4>
-  <h4 id ="input">Add entry: <input type = "text" id="inputIdInput"></h4>
-  <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
-  </form>
+
 		    
 
         <div class="jumbotron">
