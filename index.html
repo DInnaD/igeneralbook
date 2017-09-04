@@ -60,7 +60,12 @@ document.writeln(myPhonebook.indexOf('searchInput'))
 
  <div class="container"  style="position: relative;">
 	 
-	 
+<!--
+document.body.id = "unique_id";
+document.getElemetsByTagName('body')[0].id = "unique_id";
+document.querySelector('body').id = "unique_id";
+
+-->	 
  <!--form name = "phonebookForm" id = "phonebookForm">
 <h4 id ="search">Search Phonebook: <input type = "text" id="inputIdSearch" onblur="search()">
     <span id="searchResult"></span></h4>
@@ -129,11 +134,11 @@ document.writeln(myPhonebook.indexOf('searchInput'))
         <form id="myForm">
           <div class="form-group">
             <label></label>
-            <input type="text" class="form-control" id="siteName" placeholder="Name">
+            <input type="text" class="form-control" name="name" id="siteName" placeholder="Name">
           </div>
           <div class="form-group">
             <label></label>
-            <input type="text" class="form-control" id="siteUrl" placeholder="URL">
+            <input type="text" class="form-control" name="url" id="siteUrl" placeholder="URL">
           </div>
           <button type="submit" class="btn btn-circle">Submit</button>
         </form>
