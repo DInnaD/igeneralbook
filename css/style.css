@@ -79,3 +79,10 @@ body {
     border-bottom: 0;
   }
 }
+@media screen and (min-width: 768px)
+bootstrap.min.css:5
+.container .jumbotron, .container-fluid .jumbotron {
+  padding: 0 !important;
+    /* padding-right: 60px; */
+    /* padding-left: 60px; */
+}
