@@ -111,7 +111,7 @@
             <label>Site URL</label>
             <input type="text" class="form-control" id="siteUrl" placeholder="Website URL">
           </div>
-          <button type="submit" class="btn btn-circle-button">Submit</button>
+          <button type="submit" class="btn btn-circle">Submit</button>
         </form>
       </div>
 
@@ -159,6 +159,29 @@
        
        <!--/divclass="btn btn-primary"-->
 <!--hidden
+<div class="toggle">
+
+        <div class="content">Текст текст текст текст Текст текст текст текст Текст текст текст текст Текст текст текст текст</div>
+
+        <a class="toggler" href="#">Показать</a>
+
+    </div>
+
+    <div class="toggle">
+
+        <div class="content">Текст текст текст текст Текст текст текст текст Текст текст текст текст Текст текст текст текст</div>
+
+        <a class="toggler" href="#">Показать</a>
+
+    </div>
+
+    <div class="toggle">
+
+        <div class="content">Текст текст текст текст Текст текст текст текст Текст текст текст текст Текст текст текст текст</div>
+
+        <a class="toggler" href="#">Показать</a>
+
+    </div>
 
 <form id="myForm1">
           <div class="form-group">
@@ -1417,10 +1440,10 @@ function fetchBookmarks(){
     var email = bookmarks[i].email;
     var url = bookmarks[i].url;
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h3>'+name+ phone+                                   
-                                  ' <a id="toggler" target="_blank" href="'++'" href="#">More</a> ' +
+                                  '<h3>'+name+ phone+ '<div class="toggle">' + '<div class="content">' + email+ url+ '</div>'+                                  
+                                  ' <a class="toggler" class="btn btn-danger" href="#">More</a> ' + '</div>'+
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
-                                  ' <a onclick="editBookmark(\''+name+phone+email+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
+                                  ' <a onclick="editBookmark(\''   '\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
                                   ' <a onclick="deleteBookmark(\''+phone+email+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
                                   '</h3>'+
                                   '</div>';
@@ -1455,13 +1478,29 @@ document.getElementById('searchResult').innerHTML =
 document.writeln(myPhonebook.indexOf('searchInput'))
 </script>
 */
-function search() {
+/*function search() {
     var input, a, i, div, ul, li, filter;
     input = document.getElementById('search');
     filter = input.value.toUpperCase();
     div = document.getElementById('bookmarksResults');
     ul = document.getElementById('ul');
     li = div.ul.getElementsByTagName('li');
+    for(i=0; i<li.length; i++){
+        a = li[i].getElementsByTagName("a")[0];
+        if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
+            li[i].style.display = "";
+        }
+        else{
+            li[i].style.display = "none";
+        }
+    }
+}*/
+function search() {
+    var input, a, i, div, ul, li, filter;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    div = document.getElementById('bookmarksResults');
+    
     for(i=0; i<li.length; i++){
         a = li[i].getElementsByTagName("a")[0];
         if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
