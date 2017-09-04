@@ -95,13 +95,8 @@ function fetchBookmarks(){
     var name = bookmarks[i].name;
     var url = bookmarks[i].url;
 
-    bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<div class="toggle">' + '<h3>' +name+ '</h3>' + '<div class="content">' + '<h3>' + url+ '</h3>' + '</div>'+                                  
-                                  ' <a class="toggler" href="#">More</a> ' + '<h3>' +
-                                  ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
-                                  ' <a onclick="EditBookmark(\''+url+'\')" class="btn btn-danger" href="#">Edit</a> ' + ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
-                                  '</h3>' + '</div>' +
-                                  '</div>';
+    bookmarksResults.innerHTML += '<div class="well">' + '<div class="toggle">' + '<h3>' + name + '</h3>' + '<div class="content">' + '<h3>' + url + '</h3>' + '</div>' + ' <a class="toggler" href="#">More</a> ' + '<h3>' + ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' + ' <a onclick="EditBookmark(\''+url+'\')" class="btn btn-danger" href="#">Edit</a> ' + ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
+ '</h3>' + '</div>' + '</div>';
   }
 }
 function search() {
@@ -120,7 +115,7 @@ function search() {
         }
     }
 }
-function getOne() {
+/*function getOne() {
     for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
         var div = document.createElement("div");
@@ -128,7 +123,7 @@ function getOne() {
         document.getElementById("bookmarksResults").appendChild(div);
 
     }
-}
+}*/
 // Validate Form
 function validateForm(siteName, siteUrl){
   if(!siteName || !siteUrl){
