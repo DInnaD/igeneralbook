@@ -185,15 +185,15 @@ function saveBookmark(e){
     email: siteEmail,
     url: siteUrl
   }
-
-  /*
+console.log(bookmark);
+ /*
     // Local Storage Test
     localStorage.setItem('test', 'Hello World');
     console.log(localStorage.getItem('test'));
     localStorage.removeItem('test');
     console.log(localStorage.getItem('test'));
   */
-
+/*
   // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === null){
     // Init array
@@ -251,7 +251,7 @@ function fetchBookmarks(){
   for(let i = 0; i < bookmarks.length; i++){
     let name = bookmarks[i].name;
     let phone = bookmarks[i].phone;
-    /*------------------------------------------look more*/
+  
     let email = bookmarks[i].email;
     let url = bookmarks[i].url;
 
