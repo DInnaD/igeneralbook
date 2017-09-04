@@ -901,7 +901,7 @@ function addField() {
  return false;
 }
 </script> 
-<!--script>
+<script>
 // Listen for form submit
 document.getElementById('myForm').addEventListener('submit', saveBookmark);
 // Save Bookmark
@@ -969,6 +969,9 @@ function editBookmark(e, phone, email, url){
       // Remove from array
       bookmarks.splice(i, 1);
     }
+ }
+  // Re-set back to localStorage
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
  // Re-set back to localStorage
  // localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
    
@@ -1082,14 +1085,15 @@ function validateForm(siteName, sitePhone, siteEmail, siteUrl){
   return true;
 }
 
-</script-->
+</script>
 <script src="https://use.fontawesome.com/053cca04b2.js"></script>
  <script
     src="https://code.jquery.com/jquery-3.1.1.js"
     integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
     crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    
   <script src="js/jquery.js"></script>
+<!--script src="js/main.js"></script-->
     </body>
 </html>
