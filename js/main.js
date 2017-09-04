@@ -120,6 +120,15 @@ function search() {
         }
     }
 }
+function getOne() {
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        var div = document.createElement("div");
+        div.innerHTML = "<a href=\"#\">" + key + "</a>";
+        document.getElementById("bookmarksResults").appendChild(div);
+
+    }
+}
 // Validate Form
 function validateForm(siteName, siteUrl){
   if(!siteName || !siteUrl){
