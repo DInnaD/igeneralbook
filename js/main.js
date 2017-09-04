@@ -5,8 +5,8 @@ document.getElementById('myForm').addEventListener('submit', saveBookmark);
 function saveBookmark(e){
   // Get form values
   var siteName =document.getElementById('siteName').value;
- var sitePhone =document.getElementById('sitePhone').value;
-  var siteEmail =document.getElementById('siteEmail').value;
+ /*var sitePhone =document.getElementById('sitePhone').value;
+  var siteEmail =document.getElementById('siteEmail').value;*/
  var siteUrl =document.getElementById('siteUrl').value;
   
     if(!validateForm(siteName, siteUrl)){
