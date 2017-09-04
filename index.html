@@ -32,7 +32,24 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-  
+  <script>
+ myPhonebook = Array (
+Array(' Robert Mory ',' 07554035121 '),
+Array(' Susie Thompson ',' 0785430270 '))
+document.write("<pre>")
+ for (j = 0 ; j < myPhonebook.length ; ++j)
+ {
+ for (k = 0 ; k < myPhonebook.length ; ++k)
+ document.write(myPhonebook[j][k])
+ document.write("<br />")
+   }
+   document.write("</pre>")
+var search = function(){
+var searchInput = document.getElementById('inputIdSearch').value
+document.getElementById('searchResult').innerHTML = 
+      ("Searching for: " + searchInput + "...")
+document.writeln(myPhonebook.indexOf('searchInput'))
+</script> 
 </head>
 
 <body onload="fetchBookmarks()"> 
@@ -44,7 +61,6 @@
  <div class="container"  style="position: relative;">
 
 
-zz
 
   <input id="search" type="text" name="search" placeholder="Search.." onkeyup="search()"></span> 
      <button onclick="talk()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone" aria-hidden="true" ></i></button></span>
@@ -98,7 +114,13 @@ zz
     max-width: 100%; ">
       
  <div class="container">
-      
+ <form name = "phonebookForm" id = "phonebookForm">
+<h4 id ="search">Search Phonebook: <input type = "text" id="inputIdSearch" onblur="search()">
+    <span id="searchResult"></span></h4>
+  <h4 id ="input">Add entry: <input type = "text" id="inputIdInput"></h4>
+  <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
+  </form>
+		    
 
         <div class="jumbotron">
         
