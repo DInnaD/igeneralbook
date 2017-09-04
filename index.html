@@ -113,7 +113,8 @@ function CountryChange() {
       </ul>
   </div>
   
-   
+    </div> <!-- /container -->
+     </div><!--"black"--> 
    <!--div class="container" style="
     background: #000;
     position: relative;
@@ -161,11 +162,14 @@ function CountryChange() {
         </div>
       </div>
 
- </div> <!-- /container -->
-     </div><!--"black"--> 
+
 <script>
+
+
 // Listen for form submit
 document.getElementById('myForm').addEventListener('submit', saveBookmark);
+
+
 // Save Bookmark
 function saveBookmark(e){
   // Get form values
@@ -198,9 +202,7 @@ function saveBookmark(e){
     // Set to localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
       
-      // Prevent form from submitting
-  e.preventDefault();
-}/*} else {
+     } else {
     // Get bookmarks from localStorage
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     // Add bookmark to array
@@ -215,6 +217,66 @@ function saveBookmark(e){
   // Prevent form from submitting
   e.preventDefault();
 }
+
+// EDIT Bookmark
+function editBookmark(e, phone, email, url){
+   // Test if bookmarks is null
+  if(localStorage.getItem('bookmarks') === !null){
+    // Init array
+    let bookmarks = [];
+    
+    // Get bookmarks from localStorage
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    
+//del
+// Loop throught bookmarks
+  for(let i =0;i < bookmarks.length;i++){
+    if(bookmarks[i].phone == phone || bookmarks[i].email == email || bookmarks[i].url == url){
+      // Remove from array
+      bookmarks.splice(i, 1);
+    }
+ // Re-set back to localStorage
+ // localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+   
+  // Get form values
+  let siteName1 =document.getElementById('siteName').value;
+  let sitePhone1 =document.getElementById('sitePhone').value;
+  let siteEmail1 =document.getElementById('siteEmail').value;
+  let siteUrl1 =document.getElementById('siteUrl').value;
+  /*if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
+    return false;
+  }*/
+  let bookmark = {
+    name: siteName1,
+    phone: sitePhone1,
+    email: siteEmail1,
+    url: siteUrl1
+  }
+/* 
+    // Local Storage Test
+    localStorage.setItem('test', 'Hello World');
+    console.log(localStorage.getItem('test'));
+    localStorage.removeItem('test');
+    console.log(localStorage.getItem('test'));
+  */
+ // Add bookmark to array
+    bookmarks.push(bookmark);
+     // Re-set back to localStorage
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+ 
+  
+  }
+  
+  
+  // Clear form
+  document.getElementById('myForm').reset();
+  // Re-fetch bookmarks
+  fetchBookmarks();
+  // Prevent form from submitting
+  e.preventDefault();
+}
+
 // Delete bookmark
 function deleteBookmark(phone, email, url){
   // Get bookmarks from localStorage
@@ -246,22 +308,23 @@ function fetchBookmarks(){
     let email = bookmarks[i].email;
     let url = bookmarks[i].url;
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h7>'+name+ phone+ email+
-                                  //---------------------------------------------------------------more
-                                  ' <a class="btn btn-default" target="_blank" href="'++'" href="#">More</a> ' +
+                                  '<h3>'+name+ phone+                                   
+                                  ' <a id="toggler" target="_blank" href="'++'" href="#">More</a> ' +
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
                                   ' <a onclick="editBookmark(\''+name+phone+email+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
                                   ' <a onclick="deleteBookmark(\''+phone+email+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
-                                  '</h7>'+
+                                  '</h3>'+
                                   '</div>';
+                              
   }
 }
 function search() {
-    var input, a, i, ul, li, filter;
+    var input, a, i, div, ul, li, filter;
     input = document.getElementById('search');
     filter = input.value.toUpperCase();
-    ul = document.getElementById('bookmarksResults');
-    li = ul.getElementsByTagName('li');
+    div = document.getElementById('bookmarksResults');
+    ul = document.getElementById('ul');
+    li = div.ul.getElementsByTagName('li');
     for(i=0; i<li.length; i++){
         a = li[i].getElementsByTagName("a")[0];
         if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
@@ -285,7 +348,8 @@ function search() {
     return false;
   }
   return true;
-}*/
+}
+*/
 </script>
 <style>
 form {
