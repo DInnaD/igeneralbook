@@ -58,7 +58,146 @@ function CountryChange() {
     </div>
     !-- Pic to click --
     <img onclick="javascript:CountryChange()" src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_284x96dp.png" name="picpincountry"/-->
+<!--  
+/*$('div a').on('click', function() {
+    var href = $(this).attr('href');
+    window.open(href, '_blank').focus();
+});*/
+/*создаем обработчик события на саму обертку (в нашем случае это будут #blok_1 и #blok_3). На случай, если ссылки могут появиться внутри блока динамически. Можно повесить событие непосредственно на ссылки, дело от этого не изменится;
+фильтровать будет только ссылки по их селектору: a:not([href^="#"]) или a[href^="http://"] и a[href^="https://"]; хочется же, чтобы переход был именно по ссылке, а не по якорю.
+в обработчике остановим обработку события по-умолчанию, чтобы переход внутри страницы не был совершен (надо смотреть, чтобы это не повредило общей логики работы сайта) и совершим переход с помощью window.open();
+соответственно работать с этой функцией так: inNewWindow(document.getElementById('blok_1')).
+	function inNewWindow(block1) {
+    block1.on('click', 'a:not([href^="#"])', function(evt) {
+        evt.preventDefault();
+        window.open(evt.target.href, '_blank');
+    })
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<hr>
+ <div id="box" style="display: none; text-align: center; position: relative;">   
+<div class="container clearfix">
+-->
+    
+    
+ <!--form method="GET" action="#"-->
+ <!--div id="parentId">
+ <div>
+ <input name="name_1" type="text" /> 
+ <a onclick="return deleteField(this)" href="#">[X]</a>
+ </div>
+ </div-->
+ <!--input class="s" type="submit" value="GO!" /-->
+<!--/form-->
+<!--a onclick="return addField()" href="#">Добавить поле</a-->
+    <!--
 
+$('div').hide(); //прячет все дивы на странице
+$('div[name="lol"]').hide();  //прячет только те дивы, у которых есть name="lol" 
+$('[name="lol"]').hide();  //прячет все элементы, у которых есть name="lol"
+Нужно понимать логику работы: сначала идёт выборка всех элементов - получаем набор объектов, а потом разом у всех получаем один html(), но у элементов нет одного общего на всех кода. Также нельзя получить, например, высоту каждого из блоков разом (если высота не задана в стилях для всех ) -так как у них нет общей высоты. Т.е. то, что индивидуально нужно получать в цикле. 
+Ваш пример - поступают таким образом:
+JavascriptВыделить код
+
+var kod="";   
+$('.dd').each(function(){
+var dd = $(this).html()
+kod=kod+dd;
+});            
+alert(kod);
+
+$('.dd').hide();-->
+<!--
+1 grupa na back-end Danylevska Inna , @media dopyshu do 10 chysla, , view: https://dinnad.github.io/danylevskafinal/ html: https://github.com/DInnaD/danylevskafinal/blob/master/indexfinal.html css: https://github.com/DInnaD/danylevskafinal/blob/master/css/stylefinal.css
+-->
+    <!--script>
+/*var searchForm = document.getElementById('search');*/
+/*var seeSearchForm = document.getElementById('search');*/
+input=document.getElementsByTagName("input")[0]
+
+d=document.getElementsByTagName("div")[0]
+
+ 
+
+/*input.style.width="100%"*/
+
+ 
+
+ 
+
+base=[ ' Служебный номер АТС 35 Отдел автоматизации систем управления предприятием АТС 7700 48-500',
+
+ ' Дежурные водители водители 10 Транспортный цех бокс для автомобилей № 3 1876 68-501',
+
+ ' Петрова Лидия Николаевна Ведущий товаровед 25 Отдел материально-технического обеспечения №3- общий кабинет товароведов 6733 83-782 7-90-06',
+
+ 
+
+]
+
+ 
+
+search=function(pattern){
+
+var out=[]
+
+var re=new RegExp(pattern, "i")
+
+for(var i=0; i<base.length; i++){
+
+if(base[i].match(re)) {
+
+base[i]=base[i].replace(/((\d{4} \d{2}-\d{3})|(\d{4} \d{2}-\d{3} \d{1}-\d{2}-\d{2}))$/, "<b>$1</b>")
+
+out.push(base[i])
+
+}
+
+ 
+
+}
+
+return out
+
+}
+
+ 
+
+firstSearch=function(){
+
+d.innerHTML=""
+
+input.style.color=null
+
+var out=search(input.value)
+
+if(out.length<1) return secondSearch()
+
+var str=out.join("<br><br>")
+
+d.innerHTML=str
+
+}
+
+ 
+
+secondSearch=function(){
+
+input.style.color="red"
+
+d.innerHTML="I don't know <b>"+input.value+"</b>"
+
+}
+
+onload=firstSearch
+
+input.oninput=firstSearch
+
+input.focus()
+
+onkeydown=function(){input.focus()}
+
+</script-->
 
 <body onload="fetchBookmarks()"> 
 <div id="mymap"></div>
