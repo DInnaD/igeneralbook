@@ -97,14 +97,29 @@ function fetchBookmarks(){
 
     bookmarksResults.innerHTML += '<div class="well">'+
                                   '<div class="toggle">' + '<h3>' +name+ '</h3>' + '<div class="content">' + '<h3>' + url+ '</h3>' + '</div>'+                                  
-                                  ' <a class="toggler" href="#">More</a> ' + '</div>'+ '<h3>' +
+                                  ' <a class="toggler" href="#">More</a> ' + '<h3>' +
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
-                                  ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
-                                  '</h3>'+
+                                  ' <a onclick="EditBookmark(\''+url+'\')" class="btn btn-danger" href="#">Edit</a> ' + ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
+                                  '</h3>' + '</div>' +
                                   '</div>';
   }
 }
-
+function search() {
+    var input, a, i, div, filter;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    div = document.getElementById('bookmarksResults');
+    
+    for(i=0; i<div.length; i++){
+        a = div[i].getElementsByTagName("a")[0];
+        if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
+            div[i].style.display = "";
+        }
+        else{
+            div[i].style.display = "none";
+        }
+    }
+}
 // Validate Form
 function validateForm(siteName, siteUrl){
   if(!siteName || !siteUrl){
