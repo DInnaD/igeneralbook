@@ -186,6 +186,9 @@ function saveBookmark(e){
     url: siteUrl
   }
 console.log(bookmark);
+    // Prevent form from submitting
+  e.preventDefault();
+}
  /*
     // Local Storage Test
     localStorage.setItem('test', 'Hello World');
