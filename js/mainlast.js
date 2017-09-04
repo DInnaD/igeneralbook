@@ -142,14 +142,14 @@ function fetchBookmarks(){
     var email = bookmarks[i].email;
     var url = bookmarks[i].url;
     bookmarksResults.innerHTML += '<div class="well">'+
-                                  '<h3>'+name+ phone+                                   
-                                  ' <a id="toggler" target="_blank" href="'++'" href="#">More</a> ' +
+                                  '<h3>'+name+ phone+ '<div class="toggle">' + '<div class="content">' + email+ url+ '</div>'+                                  
+                                  ' <a class="toggler" class="btn btn-danger" href="#">More</a> ' + '</div>'+
                                   ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' +
                                   ' <a onclick="editBookmark(\''+name+phone+email+url+'\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
                                   ' <a onclick="deleteBookmark(\''+phone+email+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
                                   '</h3>'+
                                   '</div>';
-                              
+                            
   }
 }
 function search() {
