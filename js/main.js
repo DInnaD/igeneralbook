@@ -5,6 +5,22 @@ document.getElementById('myForm').addEventListener('submit', saveBookmark);
 function saveBookmark(e){
   // Get form values
   var siteName =document.getElementById('siteName').value;
+ var sitePhone =document.getElementById('sitePhone').value;
+  var siteEmail =document.getElementById('siteEmail').value;
+ var siteUrl =document.getElementById('siteUrl').value;
+  
+    if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
+    return false;
+  
+  var bookmark = {
+    name: siteName,
+    phone: sitePhone,
+    email: siteEmail,
+    url: siteUrl
+  }
+/*function saveBookmark(e){
+  // Get form values
+  var siteName =document.getElementById('siteName').value;
   var siteUrl =document.getElementById('siteUrl').value;
 
   if(!validateForm(siteName, siteUrl)){
@@ -14,7 +30,7 @@ function saveBookmark(e){
   var bookmark = {
     name: siteName,
     url: siteUrl
-  }
+  }*/
 
   /*
     // Local Storage Test
