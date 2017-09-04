@@ -901,24 +901,20 @@ function addField() {
 }
 </script> 
 <script>
-
-
 // Listen for form submit
 document.getElementById('myForm').addEventListener('submit', saveBookmark);
-
-
 // Save Bookmark
 function saveBookmark(e){
   // Get form values
-  let siteName =document.getElementById('siteName').value;
-  let sitePhone =document.getElementById('sitePhone').value;
-  let siteEmail =document.getElementById('siteEmail').value;
-  let siteUrl =document.getElementById('siteUrl').value;
+  var siteName =document.getElementById('siteName').value;
+ var sitePhone =document.getElementById('sitePhone').value;
+  var siteEmail =document.getElementById('siteEmail').value;
+ var siteUrl =document.getElementById('siteUrl').value;
   
     if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
     return false;
   
-  let bookmark = {
+  var bookmark = {
     name: siteName,
     phone: sitePhone,
     email: siteEmail,
@@ -934,7 +930,7 @@ function saveBookmark(e){
   // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === null){
     // Init array
-    let bookmarks = [];
+    var bookmarks = [];
     // Add to array
     bookmarks.push(bookmark);
     // Set to localStorage
@@ -942,7 +938,7 @@ function saveBookmark(e){
       
      } else {
     // Get bookmarks from localStorage
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     // Add bookmark to array
     bookmarks.push(bookmark);
     // Re-set back to localStorage
@@ -955,37 +951,35 @@ function saveBookmark(e){
   // Prevent form from submitting
   e.preventDefault();
 }
-
 // EDIT Bookmark
 function editBookmark(e, phone, email, url){
    // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === !null){
     // Init array
-    let bookmarks = [];
+    var bookmarks = [];
     
     // Get bookmarks from localStorage
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     
 //del
 // Loop throught bookmarks
-  for(let i =0;i < bookmarks.length;i++){
+  for(var i =0;i < bookmarks.length;i++){
     if(bookmarks[i].phone == phone || bookmarks[i].email == email || bookmarks[i].url == url){
       // Remove from array
       bookmarks.splice(i, 1);
     }
  // Re-set back to localStorage
  // localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
    
   // Get form values
-  let siteName1 =document.getElementById('siteName1').value;
-  let sitePhone1 =document.getElementById('sitePhone1').value;
-  let siteEmail1 =document.getElementById('siteEmail1').value;
-  let siteUrl1 =document.getElementById('siteUrl1').value;
+  var siteName1 =document.getElementById('siteName1').value;
+  var sitePhone1 =document.getElementById('sitePhone1').value;
+  var siteEmail1 =document.getElementById('siteEmail1').value;
+  var siteUrl1 =document.getElementById('siteUrl1').value;
   /*if(!validateForm(siteName, sitePhone, siteEmail, siteUrl)){
     return false;
   }*/
-  let bookmark = {
+  var bookmark = {
     name: siteName1,
     phone: sitePhone1,
     email: siteEmail1,
@@ -1014,13 +1008,12 @@ function editBookmark(e, phone, email, url){
   // Prevent form from submitting
   e.preventDefault();
 }
-
 // Delete bookmark
 function deleteBookmark(phone, email, url){
   // Get bookmarks from localStorage
-  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop throught bookmarks
-  for(let i =0;i < bookmarks.length;i++){
+  for(var i =0;i < bookmarks.length;i++){
     if(bookmarks[i].phone == phone || bookmarks[i].email == email || bookmarks[i].url == url){
       // Remove from array
       bookmarks.splice(i, 1);
@@ -1034,17 +1027,17 @@ function deleteBookmark(phone, email, url){
 // Fetch bookmarks
 function fetchBookmarks(){
   // Get bookmarks from localStorage
-  let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Get output id
-  let bookmarksResults = document.getElementById('bookmarksResults');
+  var bookmarksResults = document.getElementById('bookmarksResults');
   // Build output
   bookmarksResults.innerHTML = '';
   for(let i = 0; i < bookmarks.length; i++){
-    let name = bookmarks[i].name;
-    let phone = bookmarks[i].phone;
+    var name = bookmarks[i].name;
+    var phone = bookmarks[i].phone;
   
-    let email = bookmarks[i].email;
-    let url = bookmarks[i].url;
+    var email = bookmarks[i].email;
+    var url = bookmarks[i].url;
     bookmarksResults.innerHTML += '<div class="well">'+
                                   '<h3>'+name+ phone+                                   
                                   ' <a id="toggler" target="_blank" href="'++'" href="#">More</a> ' +
@@ -1079,8 +1072,8 @@ function validateForm(siteName, sitePhone, siteEmail, siteUrl){
     alert('Please fill in the form');
     return false;
   }
-  let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-  let regex = new RegExp(expression);
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
   if(!siteUrl.match(regex)){
     alert('Please use a valid URL');
     return false;
