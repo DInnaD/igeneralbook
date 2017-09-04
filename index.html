@@ -961,12 +961,22 @@ function saveBookmark(e){
   e.preventDefault();
 }
 // EDIT Bookmark
+    /*
+    
+function updateInput(ish){
+    document.getElementById("fieldname").value = ish;
+} 
+<input type="text" name="fieldname" id="fieldname" />  
+<input type="text" name="thingy" onchange="updateInput(this.value)" /> 
+    */
+ document.getElementById('myForm1').addEventListener('submit', saveBookmark);
 function editBookmark(e, phone, email, url){
+  var bookmarks = [];
    // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === null){
-  }else{
+    }else{
     // Init array
-    var bookmarks = [];
+    
     
     // Get bookmarks from localStorage
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -978,9 +988,9 @@ function editBookmark(e, phone, email, url){
       // Remove from array
       bookmarks.splice(i, 1);
     }
- }
+   }
   // Re-set back to localStorage
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));  
  // Re-set back to localStorage
  // localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
    
@@ -1015,7 +1025,7 @@ function editBookmark(e, phone, email, url){
   
   
   // Clear form
-  document.getElementById('myForm').reset();
+  document.getElementById('myForm1').reset();
   // Re-fetch bookmarks
   fetchBookmarks();
   // Prevent form from submitting
