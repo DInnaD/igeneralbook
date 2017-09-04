@@ -51,12 +51,13 @@ function saveBookmark(e){
 // EDIT Bookmark
 function editBookmark(e, phone, email, url){
    // Test if bookmarks is null
-  if(localStorage.getItem('bookmarks') === !null){
+  if(localStorage.getItem('bookmarks') === null){
+    }else{
     // Init array
     var bookmarks = [];
     
     // Get bookmarks from localStorage
-    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     
 //del
 // Loop throught bookmarks
