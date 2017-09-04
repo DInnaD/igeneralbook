@@ -203,6 +203,8 @@ function saveBookmark(e){
     bookmarks.push(bookmark);
     // Set to localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      
+  }
       // Prevent form from submitting
   e.preventDefault();
 }/*} else {
