@@ -185,10 +185,8 @@ function saveBookmark(e){
     email: siteEmail,
     url: siteUrl
   }
-console.log(bookmark);
-    // Prevent form from submitting
-  e.preventDefault();
-}
+
+
  /*
     // Local Storage Test
     localStorage.setItem('test', 'Hello World');
@@ -196,7 +194,7 @@ console.log(bookmark);
     localStorage.removeItem('test');
     console.log(localStorage.getItem('test'));
   */
-/*
+
   // Test if bookmarks is null
   if(localStorage.getItem('bookmarks') === null){
     // Init array
@@ -205,7 +203,9 @@ console.log(bookmark);
     bookmarks.push(bookmark);
     // Set to localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  } else {
+      // Prevent form from submitting
+  e.preventDefault();
+}/*} else {
     // Get bookmarks from localStorage
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     // Add bookmark to array
