@@ -70,8 +70,15 @@ let id = function generatId(){
     var bookmarks = [];
     // Add to array
     bookmarks.push(bookmark);
-    // Set to localStorage
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    // Set to localStorage until 5MB
+    try {
+   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+} catch (e) {
+  if (e == QUOTA_EXCEEDED_ERR) {
+   alert('Превышен лимит');
+  }
+}
+   
   } else {
     // Get bookmarks from localStorage
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -105,11 +112,13 @@ function deleteBookmark(url){
   */
 // Delete bookmark
 function deleteBookmark(id){
+  if(xxxxxxxx === id) return true;
+     else return false;
   // Get bookmarks from localStorage
   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop throught bookmarks
   for(var i =0;i < bookmarks.length;i++){
-    if(bookmarks[i].url == url){
+    if(bookmarks[i].id == id){
       // Remove from array
       bookmarks.splice(i, 1);
     }
