@@ -132,7 +132,7 @@ document.querySelector('body').id = "unique_id";
         <div class="jumbotron">
         
         <form id="form">
-          <div class="form-group">
+          <div class="form-group" style="text-align: center !important; position: relative;">
             <label></label>
             <input type="text" class="form-control name" name="name" id="siteName" placeholder="Name">
           </div>
@@ -140,7 +140,8 @@ document.querySelector('body').id = "unique_id";
             <label></label>
             <input type="text" class="form-control url" name="url" id="siteUrl" placeholder="URL">
           </div>
-		
+	<a id="toggler" href="#" class="btn btn-circle">
+    <i class="fa fa-plus" aria-hidden="true"></i></a>	
 		<div id="box" style="display: none; text-align: center; position: relative;">
       
   <a onclick="return addField()" href="#" class="btn btn-circle">
