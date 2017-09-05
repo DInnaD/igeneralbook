@@ -1,3 +1,23 @@
+/*let idGen = 
+    (start = 0, id = start, reset = (newId = start) => id = newId, next = () => id++) =>
+        ({reset, next});
+
+let gen = idGen(100);
+console.log(gen.next(), gen.next(), gen.reset(10), gen.next());//100 101 10 10
+
+
+
+var getTempItem = id => ({ id: id, name: "Temp" });
+// эквивалент
+var getTempItem = function(id) { return { id: id, name: "Temp" } };
+
+
+var getTempItems = (...rest) => rest;
+// эквивалент
+var getTempItems = function() { return [].slice.apply(arguments) };
+
+*/
+
 var data = '{"name":"Вася", "age": 30}'; // строка с данными, полученная с сервера
 
 var user = JSON.parse(data); // преобразовали строку в объект
