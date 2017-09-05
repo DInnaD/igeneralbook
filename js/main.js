@@ -1,3 +1,17 @@
+/*
+nevpevnene 164,165, del edit
+
+
+
+
+let idGen = 
+    (start = 0, id = start, reset = (newId = start) => id = newId, next = () => id++) =>
+        ({reset, next});
+
+let gen = idGen(100);
+console.log(gen.next(), gen.next(), gen.reset(10), gen.next());//100 101 10 10
+
+*/
 // Listen for form submit
 //document.getElementById('myForm').addEventListener('submit', saveBookmark);
 let form = document.getElementById('form').addEventListener('submit', saveBookmark);
@@ -22,8 +36,8 @@ form.getElementsByClassName('url')[0].value;
 let id = function generatId(){
 
   bookmark = {
-  bookmark.name = [],
-  bookmark.url = [],
+  bookmark.name = name,
+  bookmark.url = url,
   bookmark.id = id
   }
 
@@ -112,13 +126,13 @@ function deleteBookmark(url){
   */
 // Delete bookmark
 function deleteBookmark(id){
-  if(xxxxxxxx === id) return true;
-     else return false;
+ /* if(xxxxxxxx === id) return true;
+     else return false;*/
   // Get bookmarks from localStorage
   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop throught bookmarks
   for(var i =0;i < bookmarks.length;i++){
-    if(bookmarks[i].id == id){
+    if(bookmarks[i].id === id){
       // Remove from array
       bookmarks.splice(i, 1);
     }
@@ -144,11 +158,11 @@ function fetchBookmarks(){
     var url = bookmarks[i].url;
 
     bookmarksResults.innerHTML += '<div class="well">' +
-    '<h3>' + name + phone + '<div class="toggle">' + '<div class="content">' + email + url + '</div>' +
+    '<h3>' + name + '<div class="toggle">' + '<div class="content">' + url + '</div>' +
     ' <a class="toggler" class="btn btn-danger" href="#">More</a> ' + '</div>' +
     ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' +
-    ' <a onclick="editBookmark(\'' + name + phone + email + url + '\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
-    ' <a onclick="deleteBookmark(\'' + phone + email + url + '\')" class="btn btn-danger" href="#">Delete</a> ' +
+    ' <a bookmarksResults.addEventListener("click", editBookmark(id)) class="btn btn-danger" href="#">Edite</a> ' +
+    ' <a bookmarksResults.addEventListener("click", deleteBookmark(id)) class="btn btn-danger">Delete</a> ' +
     '</h3>' +
     '</div>';
   }
