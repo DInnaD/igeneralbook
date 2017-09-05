@@ -1,33 +1,56 @@
 // Listen for form submit
-document.getElementById('myForm').addEventListener('submit', saveBookmark);
+//document.getElementById('myForm').addEventListener('submit', saveBookmark);
+let form = document.getElementById('form').addEventListener('submit', saveBookmark);
 
 // Save Bookmark
 function saveBookmark(e){
   // Get form values
-  var siteName =document.getElementById('siteName').value;
-  var siteUrl =document.getElementById('siteUrl').value;
-
+//  var siteName =document.getElementById('siteName').value;
+//  var siteUrl =document.getElementById('siteUrl').value;
+form.getElementsByClassName('name')[0].value
+form.getElementsByClassName('url')[0].value
+  
   if(!validateForm(siteName, siteUrl)){
     return false;
   }
 
-  var bookmark = {
-    name: siteName,
-    url: siteUrl
-  }
-/*function saveBookmark(e){
-  // Get form values
-  var siteName =document.getElementById('siteName').value;
-  var siteUrl =document.getElementById('siteUrl').value;
-
-  if(!validateForm(siteName, siteUrl)){
-    return false;
+  let bookmark = {
+    name: [],
+    url: []
   }
 
-  var bookmark = {
-    name: siteName,
-    url: siteUrl
-  }*/
+let id = function generatId(){
+
+  bookmark = {
+  bookmark.name = name,
+  bookmark.url = url,
+  bookmark.id = id
+  }
+}
+
+  try {
+
+    if(localStorage.['bookmarks']: length === 0) return 1;
+    
+
+  if (!bookmarks.name || !bookmarks.url) {
+    throw new SyntaxError("Ошибка в данных");
+  }
+
+  blabla(); // произошла непредусмотренная ошибка
+
+  alert( bookmarks.name, bookmarks.url );
+
+} catch (e) {
+
+  if (e.name == "SyntaxError" || e.url == "SyntaxError") {
+    alert( "Извините, в данных ошибка" );
+  } else {
+    throw e;
+  }
+
+}
+
 
   /*
     // Local Storage Test
@@ -55,7 +78,7 @@ function saveBookmark(e){
   }
 
   // Clear form
-  document.getElementById('myForm').reset();
+  document.getElementById('form').reset();
 
   // Re-fetch bookmarks
   fetchBookmarks();
