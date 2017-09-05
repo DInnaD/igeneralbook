@@ -7,13 +7,13 @@ function saveBookmark(e){
   // Get form values
 //  var siteName =document.getElementById('siteName').value;
 //  var siteUrl =document.getElementById('siteUrl').value;
-form.getElementsByClassName('name')[0].value
-form.getElementsByClassName('url')[0].value
+form.getElementsByClassName('name')[0].value;
+form.getElementsByClassName('url')[0].value;
   
-  if(!validateForm(siteName, siteUrl)){
+  if(!validateForm(siteName, siteUrl)){//with getElementById
     return false;
   }
-
+//for
   let bookmark = {
     name: [],
     url: []
@@ -22,17 +22,19 @@ form.getElementsByClassName('url')[0].value
 let id = function generatId(){
 
   bookmark = {
-  bookmark.name = name,
-  bookmark.url = url,
+  bookmark.name = [],
+  bookmark.url = [],
   bookmark.id = id
   }
-}
+
 
   try {
 
-    if(localStorage.['bookmarks']: length === 0) return 1;
-    
-
+    if(localStorage.['bookmarks'].lenght === 0){ return 1;
+       }else{
+        lastElementIndex = localStorage.lenght - 1;
+         return lastElementIndex + 1;
+       }
   if (!bookmarks.name || !bookmarks.url) {
     throw new SyntaxError("Ошибка в данных");
   }
@@ -50,6 +52,8 @@ let id = function generatId(){
   }
 
 }
+
+}// the end of let id = function generatId(){
 
 
   /*
@@ -86,9 +90,21 @@ let id = function generatId(){
   // Prevent form from submitting
   e.preventDefault();
 }
-
+/*
 // Delete bookmark
 function deleteBookmark(url){
+  // Get bookmarks from localStorage
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  // Loop throught bookmarks
+  for(var i =0;i < bookmarks.length;i++){
+    if(bookmarks[i].url == url){
+      // Remove from array
+      bookmarks.splice(i, 1);
+    }
+  }
+  */
+// Delete bookmark
+function deleteBookmark(id){
   // Get bookmarks from localStorage
   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   // Loop throught bookmarks
