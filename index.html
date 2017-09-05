@@ -52,14 +52,14 @@ document.writeln(myPhonebook.indexOf('searchInput'))
 </script> 
 </head>
 
-<body onload="getOne()" onload="fetchBookmarks()"> 
+<body onload="fetchBookmarks()"> 
 <div id="mymap"></div>
   
   
   <div id="contactform">
 
  <div class="container"  style="position: relative;">
-ffffffffff	 
+	 
 <!--
 document.body.id = "unique_id";
 document.getElemetsByTagName('body')[0].id = "unique_id";
@@ -131,17 +131,33 @@ document.querySelector('body').id = "unique_id";
 
         <div class="jumbotron">
         
-        <form id="myForm">
+        <form id="form">
           <div class="form-group">
             <label></label>
             <input type="text" class="form-control name" name="name" id="siteName" placeholder="Name">
           </div>
           <div class="form-group">
             <label></label>
-            <input type="text" class="form-control url" name="" id="siteUrl" placeholder="URL">
+            <input type="text" class="form-control url" name="url" id="siteUrl" placeholder="URL">
           </div>
+		
+		<div id="box" style="display: none; text-align: center; position: relative;">
+      
+  <a onclick="return addField()" href="#" class="btn btn-circle">
+    <i class="fa fa-plus" aria-hidden="true"></i></a>
+    
+ <div id="parentId">
+ <div>
+ <input name="name" type="text" placeholder="I wish to remember.." /> 
+ <a onclick="return deleteField(this)" href="#" class="btn btn-circle"><i class="fa fa-ban" aria-hidden="true"></i></a>
+ </div>
+ </div>
+ 
+
           <button type="submit" class="btn btn-circle">Submit</button>
+			
         </form>
+		
       </div>
 
       <div class="row marketing">
