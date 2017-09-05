@@ -95,8 +95,14 @@ function fetchBookmarks(){
     var name = bookmarks[i].name;
     var url = bookmarks[i].url;
 
-    bookmarksResults.innerHTML += '<div class="well">' + '<div class="toggle">' + '<h3>' + name + '</h3>' + '<div class="content">' + '<h3>' + url + '</h3>' + '</div>' + ' <a class="toggler" href="#">More</a> ' + '<h3>' + ' <a class="btn btn-default" target="_blank" href="'+url+'">Visit</a> ' + ' <a onclick="EditBookmark(\''+url+'\')" class="btn btn-danger" href="#">Edit</a> ' + ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">Delete</a> ' +
- '</h3>' + '</div>' + '</div>';
+    bookmarksResults.innerHTML += '<div class="well">' +
+    '<h3>' + name + phone + '<div class="toggle">' + '<div class="content">' + email + url + '</div>' +
+    ' <a class="toggler" class="btn btn-danger" href="#">More</a> ' + '</div>' +
+    ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' +
+    ' <a onclick="editBookmark(\'' + name + phone + email + url + '\')" target="_blank" class="btn btn-danger" href="#">Edite</a> ' +
+    ' <a onclick="deleteBookmark(\'' + phone + email + url + '\')" class="btn btn-danger" href="#">Delete</a> ' +
+    '</h3>' +
+    '</div>';
   }
 }
 function search() {
