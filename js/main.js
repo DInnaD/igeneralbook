@@ -1,3 +1,37 @@
+var data = '{"name":"Вася", "age": 30}'; // строка с данными, полученная с сервера
+
+var user = JSON.parse(data); // преобразовали строку в объект
+
+// теперь user -- это JS-объект с данными из строки
+alert( user.name ); // Вася
+alert( user.age ); // 30
+
+
+var data = '{ "name": "Вася", "age": 30 }'; // данные корректны
+
+try {
+
+  var user = JSON.parse(data);
+
+  if (!user.name) {
+    throw new SyntaxError("Ошибка в данных");
+  }
+
+  blabla(); // произошла непредусмотренная ошибка
+
+  alert( user.name );
+
+} catch (e) {
+
+  if (e.name == "SyntaxError") {
+    alert( "Извините, в данных ошибка" );
+  } else {
+    throw e;
+  }
+
+}
+
+
 // Listen for form submit
 document.getElementById('form').addEventListener('submit', saveBookmark);
 
@@ -9,11 +43,11 @@ let bookmark = {};
      bookmark.url: siteUrl,
      bookmark.id: id
      for
-     
+     render
   }
 // Save Bookmark
 
-let form = document.getElementById('form')
+let form = document.getElementById('form').addEventListener('submit', saveBookmark);
 form.getElementsByClassName('name')
 [input#siteName.form-control.name, siteName: input#siteName.form-control.name, name: input#siteName.form-control.name]
 form.getElementsByClassName('name')[0].value
