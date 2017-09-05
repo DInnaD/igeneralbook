@@ -105,13 +105,15 @@ document.querySelector('body').id = "unique_id";
         <!--a class="toggler" href="#">add new</a-->
         <div id="navigation">
      <ul class="nav-list">
-      <li  id="js-show-all" class="btn btn-circle">
-    <!--i class="fa fa-users" aria-hidden="true"></i--></li>
-    <li id="js-search" class="btn btn-circle"><a id="toggler" href="#" style="padding: 0px;
+      <li  id="js-show-all" class="btn btn-circle" onclick="document.getElementById('bookmarksResults').style.display='block'" style="padding: 0px;
     font-size: 45px; color: #42DCA3; text-decoration: underline;">
-    <i class="fa fa-plus" aria-hidden="true"></i></a>	
-    <!--i class="fa fa-search" aria-hidden="true"></i--></li>
-    <li id="js-add-new" class="btn btn-circle">
+    <i class="fa fa-users" aria-hidden="true"></i></li>
+    <li id="js-search" class="btn btn-circle" onclick="document.getElementById('demo').style.display='block'" style="padding: 0px;
+    font-size: 45px; color: #42DCA3; text-decoration: underline;">	
+    <i class="fa fa-search" aria-hidden="true"></i></li>
+    <li id="js-add-new" class="btn btn-circle" onclick="document.getElementById('form').style.display='block'" ><a id="toggler" href="#" style="padding: 0px;
+    font-size: 45px; color: #42DCA3; text-decoration: underline;">
+    <i class="fa fa-plus" aria-hidden="true"></i></a>
     <!--i class="fa fa-plus" aria-hidden="true"></i--></li>
 
       </ul>
@@ -131,11 +133,18 @@ document.querySelector('body').id = "unique_id";
  <div class="container">
 
 	
- <!--div id="box" style="display: none; text-align: center; position: relative;"-->			    
+ <!--div id="box" style="display: none; text-align: center; position: relative;"
+
+onclick="document.getElementById('demo').style.display='none'"
+
+<p id="demo" style="display:none">Hello JavaScript!</p>
+
+<button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me!</button>
+-->			    
 
   <div class="jumbotron">
        
-        <form id="myForm">
+        <form id="form">
 		
 		<div class="container" style="color: black; padding: 0px 400px;">  
 		
@@ -188,13 +197,13 @@ document.querySelector('body').id = "unique_id";
 
       <div class="row marketing">
         <div class="col-lg-12">
-          <div id="bookmarksResults"></div>
+          <div id="bookmarksResults" style="display:none"></div>
         </div>
       </div>
 
-      <footer class="footer">
+      <!--footer class="footer">
         <p></p>
-      </footer>
+      </footer-->
 
     </div> <!-- /container -->
       <!--div class="jumbotron">
