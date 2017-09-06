@@ -175,6 +175,7 @@ document.querySelector('body').id = "unique_id";
 </div>
 <div class="container">
 		<div class="col-md-offset-2 col-md-8 col-xs-12">
+			<div class="container" style="color: black; padding: 0px 400px;">  
 			<form id="storageForm" role="form">
 				<div class="form-group">
 					<label for="keyName"></label>
@@ -185,14 +186,15 @@ document.querySelector('body').id = "unique_id";
 					<input type="text" class="form-control" id="keyValue" placeholder="Value" />
 				</div>
 				<div class="form-group">
-            <label for="submit" class="btn btn-circle">Submit</label>
-            <input type="submit" class="btn btn-primary" id="submit_button" value="Save" />
+            <label for="submit" class="sr-only"></label>
+            <input type="submit" class="btn btn-circle" id="submit_button" value="Save" />
           </div>
           <div class="form-group">
-            <label for="submit" class="sr-only">Clear All</label>
-            <button class="btn btn-danger" id="clear_button" value="Clear">Clear</button>
+            <label for="submit" class="sr-only"></label>
+            <button class="btn btn-danger" id="clear_button" value="Clear">Clear All</button>
           </div>
 			</form>
+			</div>	
 		</div>
 	</div>
   <br />
