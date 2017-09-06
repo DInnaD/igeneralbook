@@ -170,31 +170,26 @@ document.querySelector('body').id = "unique_id";
   <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
   </form-->	 
 <hr>
-<div class="jumbotron">
-
-</div>
 <div class="container">
 		<div class="col-md-offset-2 col-md-8 col-xs-12">
-		  
 			<form id="storageForm" role="form">
 				<div class="form-group">
-					<label for="keyName"></label>
-					<input type="text" class="form-control" id="keyName" placeholder="Name" />
+					<label for="keyName">Key Name: </label>
+					<input type="text" class="form-control" id="keyName" placeholder="Key Name" />
 				</div>
 				<div class="form-group">
-					<label for="keyValue"></label>
-					<input type="text" class="form-control" id="keyValue" placeholder="Value" />
+					<label for="keyValue">Key Value: </label>
+					<input type="text" class="form-control" id="keyValue" placeholder="Key Value" />
 				</div>
 				<div class="form-group">
-            <label for="submit" class="sr-only"></label>
-            <input type="submit" class="btn btn-circle" id="submit_button" value="Save" />
+            <label for="submit" class="sr-only">Submit</label>
+            <input type="submit" class="btn btn-primary" id="submit_button" value="Save" />
           </div>
           <div class="form-group">
-            <label for="submit" class="sr-only"></label>
-            <button class="btn btn-danger" id="clear_button" value="Clear">Clear All</button>
+            <label for="submit" class="sr-only">Clear</label>
+            <button class="btn btn-danger" id="clear_button" value="Clear">Clear</button>
           </div>
 			</form>
-			
 		</div>
 	</div>
   <br />
@@ -203,7 +198,7 @@ document.querySelector('body').id = "unique_id";
 	<div class="container">
 		<div class="col-md-12">
 			<div class="well bg-danger" id="storageWell">
-				<p class="missing" id="nodata">Add your data here!</p>
+				<p class="missing" id="nodata">No Data In Storage</p>
           <ul id="storageList"></ul>
 			</div>
 		</div>
