@@ -200,7 +200,109 @@ onclick="document.getElementById('demo').style.display='none'"
           <div id="bookmarksResults" style="display:none"></div>
         </div>
       </div>
+	 
+<hr>
+<div class="jumbotron">
+  <h1>Local Storage Test</h1>
+</div>
+<div class="container">
+		<div class="col-md-offset-2 col-md-8 col-xs-12">
+			<form id="storageForm" role="form">
+				<div class="form-group">
+					<label for="keyName">Key Name: </label>
+					<input type="text" class="form-control" id="keyName" placeholder="Key Name" />
+				</div>
+				<div class="form-group">
+					<label for="keyValue">Key Value: </label>
+					<input type="text" class="form-control" id="keyValue" placeholder="Key Value" />
+				</div>
+				<div class="form-group">
+            <label for="submit" class="sr-only">Submit</label>
+            <input type="submit" class="btn btn-primary" id="submit_button" value="Save" />
+          </div>
+          <div class="form-group">
+            <label for="submit" class="sr-only">Clear</label>
+            <button class="btn btn-danger" id="clear_button" value="Clear">Clear</button>
+          </div>
+			</form>
+		</div>
+	</div>
+  <br />
+  <br />
+  <hr>
+	<div class="container">
+		<div class="col-md-12">
+			<div class="well bg-danger" id="storageWell">
+				<p class="missing" id="nodata">No Data In Storage</p>
+          <ul id="storageList"></ul>
+			</div>
+		</div>
+	</div>
+<style>
 
+</style>
+<script>/*https://codepen.io/clossmans2/pen/gpxLKm*/
+(function() {
+  document.getElementById('submit_button').addEventListener('click', function(e) {
+    e.preventDefault();
+    var key = {};
+    var key_int = localStorage.length + 1;
+    key.id = "item" + key_int;
+    //console.log(key.id);
+    var itemExists = document.getElementById(key.id);
+    if(itemExists !== null) {
+      itemExists.remove();
+    }
+    key.name = document.getElementById("keyName").value;
+    //console.log(key.name);
+    key.value = document.getElementById("keyValue").value;
+    //console.log(key.value);
+    var jsonkey = key.value;
+    //console.log(jsonkey);
+    localStorage[key.name] = JSON.stringify(jsonkey);
+    var nodata = document.getElementById("nodata");
+    
+    var nodataHidden = hasClass(nodata, 'hidden');
+    if(nodataHidden == false) {
+      nodata.classList.add("hidden");
+    }
+    
+    var storageList = document.getElementById("storageList");
+    var listItem = document.createElement("li");
+    listItem.setAttribute("id", key.name);
+    var item = JSON.parse(localStorage[key.name]);
+    //console.log(item.Id);
+    //console.log(item.Name);
+    //console.log(item.Value);
+    var pieces = "Key: " + key.name + ", Value: " + key.value;
+    var itemNode = document.createTextNode(pieces);
+    listItem.appendChild(itemNode);
+    storageList.appendChild(listItem);
+    
+    /**
+     * @name hasClass
+     * @desc Function to test for class on an element without jquery
+     */
+    function hasClass(el, selector) {
+      var className = " " + selector + " ";
+      if ((" " + el.className + " ").replace(/[\n\t]/g, " ").indexOf(className) > -1) {
+        return true;
+      }      
+      return false;
+    };
+  });
+  document.getElementById('clear_button').addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.clear();
+    var storageList = document.getElementById("storageList");
+    while (storageList.firstChild) {
+    storageList.removeChild(storageList.firstChild);
+    }
+    var nodata = document.getElementById("nodata");
+    nodata.classList.remove("hidden");
+  });
+})();
+</script>
       <!--footer class="footer">
         <p></p>
       </footer-->
