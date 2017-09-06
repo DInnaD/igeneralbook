@@ -111,7 +111,7 @@ onclick="document.getElementById('demo').style.display='none'"
 <button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me!</button>
 -->			    
 
-  <div class="jumbotron">
+  <!--div class="jumbotron">
        
         <form id="form">
 		
@@ -130,47 +130,18 @@ onclick="document.getElementById('demo').style.display='none'"
 				
         </form>		
 
-<!--form method="GET" action="#">
- <div id="parentId">
-	 
- <div>	 
- <input name="name_1" type="text" placeholder="Name.." /> 
- <a onclick="return deleteField(this)" href="#" ><i class="fa fa-ban" aria-hidden="true"></i></a>
- </div>
-<div>	 
- <input name="phone_1" type="text" placeholder="Phone.." /> 
- <a onclick="return deleteField(this)" href="#" ><i class="fa fa-ban" aria-hidden="true"></i></a>
- </div>
-<div>	 
- <input name="link_1" type="text" placeholder="URL.." /> 
- <a onclick="return deleteField(this)" href="#" ><i class="fa fa-ban" aria-hidden="true"></i></a>
- </div>	 
-<div>	 
- <input name="address_1" type="text" placeholder="Address.." /> 
- <a onclick="return deleteField(this)" href="#" ><i class="fa fa-ban" aria-hidden="true"></i></a>
- </div>	
-<div>	 
- <input name="email_1" type="text" placeholder="Email.." /> 
- <a onclick="return deleteField(this)" href="#" ><i class="fa fa-ban" aria-hidden="true"></i></a>
- </div>	 
-	 
- </div>
-	      
- <input class="btn btn-circle" type="submit"  value="GO!" />
-</form>
-<a onclick="return addField()" href="#" class="btn btn-circle">
-    <i class="fa fa-plus" aria-hidden="true"></i></a-->
+
 
 </div>		
-  <!--/div><!-- /box-->   
+ 
 
       <div class="row marketing">
         <div class="col-lg-12">
           <div id="bookmarksResults" style="display:none"></div>
         </div>
       </div>
-<hr>	 
-	 <script>
+<hr-->	 
+	 <!--script>
 	  
  myPhonebook = Array (
 Array(' Robert Mory ',' 07554035121 '),
@@ -197,7 +168,7 @@ document.querySelector('body').id = "unique_id";
     <span id="searchResult"></span></h4>
   <h4 id ="input">Add entry: <input type = "text" id="inputIdInput"></h4>
   <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
-  </form>	 
+  </form-->	 
 <hr>
 <div class="jumbotron">
   <h1>Local Storage Test</h1>
@@ -206,19 +177,19 @@ document.querySelector('body').id = "unique_id";
 		<div class="col-md-offset-2 col-md-8 col-xs-12">
 			<form id="storageForm" role="form">
 				<div class="form-group">
-					<label for="keyName">Key Name: </label>
-					<input type="text" class="form-control" id="keyName" placeholder="Key Name" />
+					<label for="keyName"></label>
+					<input type="text" class="form-control" id="keyName" placeholder="Name" />
 				</div>
 				<div class="form-group">
-					<label for="keyValue">Key Value: </label>
-					<input type="text" class="form-control" id="keyValue" placeholder="Key Value" />
+					<label for="keyValue"></label>
+					<input type="text" class="form-control" id="keyValue" placeholder="Value" />
 				</div>
 				<div class="form-group">
-            <label for="submit" class="sr-only">Submit</label>
+            <label for="submit" class="btn btn-circle">Submit</label>
             <input type="submit" class="btn btn-primary" id="submit_button" value="Save" />
           </div>
           <div class="form-group">
-            <label for="submit" class="sr-only">Clear</label>
+            <label for="submit" class="sr-only">Clear All</label>
             <button class="btn btn-danger" id="clear_button" value="Clear">Clear</button>
           </div>
 			</form>
@@ -230,7 +201,7 @@ document.querySelector('body').id = "unique_id";
 	<div class="container">
 		<div class="col-md-12">
 			<div class="well bg-danger" id="storageWell">
-				<p class="missing" id="nodata">No Data In Storage</p>
+				<p class="missing" id="nodata">Add your data here!</p>
           <ul id="storageList"></ul>
 			</div>
 		</div>
