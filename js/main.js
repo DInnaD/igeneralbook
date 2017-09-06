@@ -24,7 +24,7 @@ function saveBookmark(e){
 form.getElementsByClassName('name')[0].value;
 form.getElementsByClassName('url')[0].value;
   
-  if(!validateForm(siteName, siteUrl)){//with getElementById
+  if(!validateForm(name, url)){//with getElementById
     return false;
   }
 //for
@@ -126,6 +126,23 @@ function deleteBookmark(url){
   */
 // Delete bookmark
 function deleteBookmark(id){
+  // Get bookmarks from localStorage
+  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  // Loop throught bookmarks
+  for(var i =0;i < bookmarks.length;i++){
+    if(bookmarks[i].id === id){
+      // Remove from array
+      bookmarks.splice(i, 1);
+    }
+  }
+  // Re-set back to localStorage
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+  // Re-fetch bookmarks
+  fetchBookmarks();
+}
+/*// Delete bookmark
+function deleteBookmark(id){
  /* if(xxxxxxxx === id) return true;
      else return false;*/
   // Get bookmarks from localStorage
@@ -143,7 +160,7 @@ function deleteBookmark(id){
   // Re-fetch bookmarks
   fetchBookmarks();
 }
-
+*/
 // Fetch bookmarks
 function fetchBookmarks(){
   // Get bookmarks from localStorage
@@ -193,8 +210,8 @@ function search() {
     }
 }*/
 // Validate Form
-function validateForm(siteName, siteUrl){
-  if(!siteName || !siteUrl){
+function validateForm(name, url){
+  if(!name || !url){
     alert('Please fill in the form');
     return false;
   }
