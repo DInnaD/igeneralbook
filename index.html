@@ -169,17 +169,19 @@ document.querySelector('body').id = "unique_id";
   <h4 id ="input">Add entry: <input type = "text" id="inputIdInput"></h4>
   <h4 id ="view">View all entries: <input type = "text" id="inputIdView"></h4>
   </form-->	 
-<hr>
+<div class="jumbotron">
+  <h1>Local Storage Test</h1>
+</div>
 <div class="container">
 		<div class="col-md-offset-2 col-md-8 col-xs-12">
 			<form id="storageForm" role="form">
 				<div class="form-group">
-					<label for="keyName">Key Name: </label>
-					<input type="text" class="form-control" id="keyName" placeholder="Key Name" />
+					<label for="keyName"></label>
+					<input type="text" class="form-control" name="keyName" id="keyName" class="keyName" placeholder="Name" />
 				</div>
 				<div class="form-group">
-					<label for="keyValue">Key Value: </label>
-					<input type="text" class="form-control" id="keyValue" placeholder="Key Value" />
+					<label for="keyValue"></label>
+					<input type="text" class="form-control" name="keyValue" id="keyValue" class="keyValue" placeholder="Phone" />
 				</div>
 				<div class="form-group">
             <label for="submit" class="sr-only">Submit</label>
@@ -201,11 +203,6 @@ document.querySelector('body').id = "unique_id";
 				<p class="missing" id="nodata">No Data In Storage</p>
           <ul id="storageList"></ul>
 			</div>
-		</div>
-	</div>
-<style>
-
-</style>
 <script>
 (function() {
   document.getElementById('submit_button').addEventListener('click', function(e) {
@@ -1079,7 +1076,7 @@ function addField() {
     <script src="js/bootstrap.min.js"></script>
     
   <script src="js/jquery.js"></script>
-<script src="js/main.js"></script>
+<!--script src="js/main.js"></script-->
 
 <script type="text/javascript">
 // Набор функций
