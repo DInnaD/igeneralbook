@@ -24,7 +24,8 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="libs/font-awesome-4.7.0/css/font-awesome.min.css">	
 	<script src="https://use.fontawesome.com/053cca04b2.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/my.js"></script>
+	<!--script src="js/main.js"></script-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,14 +45,45 @@
 		<span><button onclick="stop()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone-slash" aria-hidden="true" ></i></button></span>
 <!--span><input type="submit" value="Submit"  /></span>
 	  </form-->
-        <div class="brand">my General Book</div>
+        <!--div class="brand">General Book</div-->
+	  <div class="brand"><a href="#" id="toggler" title="Click what how to use it" style="color: #42DCA3;">
+	   <i class="fa fa-info-circle" aria-hidden="true" style="35px !important;"></i></a>General Book</div><!--"brand"-->		
+		
+                <div id="box" style="display: none; text-align: center; position: relative;">
+                  <h5></h5>
+                  <p style="color: #fff !important; font-size: 0.8em;">INSTRUCTION<br></p>
+                </div>     
+
+    	
+	
+	  
+	  
+	<script>
+  window.onload= function() {
+     document.getElementById('toggler').onclick = function() {
+         openbox('box', this);
+         return false;
+     };
+  };
+  function openbox(id, toggler) {
+     var div = document.getElementById(id);
+     if(div.style.display == 'block') {
+         div.style.display = 'none';
+         toggler.innerHTML = '<i class="fa fa-info-circle" aria-hidden="true"></i>';
+     }
+     else {
+         div.style.display = 'block';
+         toggler.innerHTML = '<i class="fa fa-ban" aria-hidden="true"></i>';
+     }
+  }
+  </script> 
         </div><!--div id="contactform"-->
 <div id="navigation">
-    <ul class="nav-list">
+    <ul class="nav-list" style="padding: 20px;">
 
 	<li id="js-show-all" class="btn btn-circle" style="padding: 0px; font-size: 45px; color: #42DCA3; text-decoration: underline;"><a href="#"><i aria-hidden="true" class="fa fa-users"></i></a></li>
-        <li id="js-search" class="btn btn-circle" style="padding: 0px; font-size: 45px; color: #42DCA3; text-decoration: underline;"><i aria-hidden="true" class="fa fa-search"></i></li>
-        <li id="js-add-new" class="btn btn-circle" style="padding: 0px; font-size: 45px; color: #42DCA3; text-decoration: underline;"><i aria-hidden="true" class="fa fa-plus"></i></li>
+        <li id="js-search" class="btn btn-circle" style="padding: 0px; font-size: 45px; color: #42DCA3; text-decoration: underline;"><a href="#"><i aria-hidden="true" class="fa fa-search"></i></a></li>
+        <li id="js-add-new" class="btn btn-circle" style="padding: 0px; font-size: 45px; color: #42DCA3; text-decoration: underline;"><a href="#"><i aria-hidden="true" class="fa fa-plus"></i></a></li>
         <!--li id="js-show-all">ALL</li>
         <li id="js-search">SEARCH</li>
         <li id="js-add-new">NEW</li-->
@@ -59,8 +91,7 @@
 
     </ul>
 </div>
-<!--div id="contactform1">
-<div id="contactform2" ></div>	<!--div id="contactform2"-->			
+			
 <div id="search-panel" class="panel">
     <h1>Search Contacts</h1>
     <form id="search" action="#">
@@ -100,7 +131,25 @@
 </div><!--end of contactform-->
 
 
- 
+ <!--style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 19px 10px 2px 50px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+</style-->
 	<style>
     html, body{
       width: 100% !important;
@@ -126,25 +175,7 @@
         line-height: normal;
         color: #fff; 
 }
-		/*input{
-  width:100%;
-  box-sizing:border-box;
-  font-size:1em;
-  margin-top:0.5em;
-  padding:0.5em;
-}
-input:focus{
-  outline:none;
-  text-decoration: none;
-  color: #1d9b6c;
-  cursor: pointer; 
-}
-input::after{
-  width:100%;
-  height:10px;
-  background:red;
-}
-*/
+		
     #contactform1 { 
   position: relative; 
   z-index: 1; /* The z-index should be higher than Google Maps */
@@ -400,6 +431,10 @@ document.getElementById('js-add-new').addEventListener('click', function(){
   document.getElementById('contact-panel').style.display = 'block';
 });
 		</script>
+	
+	
+	
+	
 <script>
 var map = null;
 // When the window has finished loading create our google map below
