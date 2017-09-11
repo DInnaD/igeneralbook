@@ -82,7 +82,7 @@ var modal = document.getElementById("form1");
 var btn = document.getElementById("add");
 var span = document.getElementsByClassName("close")[0];
 
-// Вывод окна ввода контакта
+// modalWindow addForm
 
 btn.onclick = function () {
     modal.style.display = "block"
@@ -92,9 +92,31 @@ span.onclick = function () {
     modal.style.display = "none"
 };
 
-// Обработка формы
+//Generate id of each contact
+function generateId(){	
+	   
+    //let key_int = localStorage.length + 1;
+    //key.id = key_int;
 
-function valid (fotm) {
+    try{
+   if(localStorage[tmpObjs].length === 0){ return 1;
+		}else{
+			var contact_int = localStorage.length - 1;
+    		return tmpObj.id = contact_int + 1;
+    	}
+    	    } catch (e) {
+  if (e !==  tmpObj.id) {
+  alert('Error data');
+ }
+}
+
+}
+
+function saveContact(id, fotm) {
+//let id = generateId();//or 
+/* let id = this.getAttribute('id');
+
+ if (typeof (id) == 'undefined') {
 	
     tmpObj.name = document.getElementsByName("name1")[0].value;
     tmpObj.surname = document.getElementsByName('surname')[0].value;
@@ -108,11 +130,11 @@ function valid (fotm) {
     for(var i = 0; i<emails.length; i++){
         tmpObj.emails1.push(emails[i].value);
     }
-/*
-	let tmpObjs=[];
-tmpObjs.push(tmpObj);	
-   localStorage.setItem(tmpObjs, JSON.stringify(tmpObjs));
-*/
+
+//	let tmpObjs=[];
+//tmpObjs.push(tmpObj);	
+//   localStorage.setItem(tmpObjs, JSON.stringify(tmpObjs));
+
 	
 	// Test if bookmarks is null
   if(localStorage.getItem('tmpObjs') === null){
@@ -124,9 +146,7 @@ tmpObjs.push(tmpObj);
 
             // Put the object into storage
 localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
-//var result = JSON.parse(localStorage.getItem("contacts"));
 
-//console.log(result);
  } else {
     // Get bookmarks from localStorage
     let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
@@ -135,7 +155,57 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     // Re-set back to localStorage
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
   }
+ }else{
+ */
+ 
+    tmpObj.name = document.getElementsByName("name1")[0].value;
+    tmpObj.surname = document.getElementsByName('surname')[0].value;
+    var phones = document.getElementsByName('phone');
+    tmpObj.phones1=[];
+    for(var i = 0; i<phones.length; i++){
+        tmpObj.phones1.push(phones[i].value);
+    }
+    var emails = document.getElementsByName('email');
+    tmpObj.emails1=[];
+    for(var i = 0; i<emails.length; i++){
+        tmpObj.emails1.push(emails[i].value);
+    }
+	 
+	 
+let id = generateId();
+let tmpObj = { 
+			id: id,
+                 name: [],
+		surname: [],
+                 phones1: [],
+		emails1: []
+                 //url: url,
+                 //info_1: info_1,
+                 //info_2: info_2,
+                 //info_3: info_3,
+                 //info_4: info_4,
+                 //info_5: info_5
+ };
 	
+	// Test if bookmarks is null
+  if(localStorage.getItem('tmpObjs') === null){
+   
+ // Init array
+let tmpObjs = [];
+tmpObjs.push(tmpObj);
+
+
+            // Put the object into storage
+localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
+
+ } else {
+    // Get bookmarks from localStorage
+    let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
+    // Add bookmark to array
+    tmpObjs.push(tmpObj);
+    // Re-set back to localStorage
+    localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
+ }	
 	
     alert('Contact ' + tmpObj.name + ' added to memory');
     window.location.reload();
