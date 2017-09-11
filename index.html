@@ -160,10 +160,35 @@ function valid (fotm) {
     for(var i = 0; i<emails.length; i++){
         tmpObj.emails1.push(emails[i].value);
     }
-let tmpObjs=[];
+/*
+	let tmpObjs=[];
 tmpObjs.push(tmpObj);	
    localStorage.setItem(tmpObjs, JSON.stringify(tmpObjs));
+*/
+	
+	// Test if bookmarks is null
+  if(localStorage.getItem('tmpObjs') === null){
+   
+ // Init array
+let tmpObjs = [];
+tmpObjs.push(contact);
 
+
+            // Put the object into storage
+localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
+//var result = JSON.parse(localStorage.getItem("contacts"));
+
+//console.log(result);
+ } else {
+    // Get bookmarks from localStorage
+    let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
+    // Add bookmark to array
+    tmpObjs.push(tmpObjs);
+    // Re-set back to localStorage
+    localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
+  }
+	
+	
     alert('Contact ' + tmpObj.name + ' added to memory');
     window.location.reload();
 }	
