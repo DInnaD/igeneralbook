@@ -35,7 +35,7 @@
     <![endif]-->
 </head>
 <body> 
-<div id="mymap" style: absolute !important;></div>
+<div id="mymap" style = "position: absolute !important;"></div>
 	
 
 	<div id="contactform">	
@@ -44,19 +44,17 @@
 
 
 
-<form id="search" action="#">
+
   
 	<span><!--input id="search" type="text" name="search" placeholder="Search.."--><input type="text" id="search" onkeyup="searchContact()" placeholder="Search.." title=""></span> 
 		<span> <button onclick="talk()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone" aria-hidden="true" ></i></button></span>
  
 		<span><button onclick="stop()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone-slash" aria-hidden="true" ></i></button></span>
 <!--span><input type="submit" value="Submit"  /></span-->
-	  </form>
+	  
 <hr>
         
-	<!--div id="navigation">
-   	 <ul class="nav-list">
-<li id="js-show-instruction" class="btn btn-circle" ><i class="fa fa-info-circle" aria-hidden="true"></i></li-->
+
    <div class="brand"><a href="#" id="toggler" title="Click what to do" style="color: #42DCA3;">
 	   <i class="fa fa-info-circle" aria-hidden="true" style="35px !important;"></i></a>General Book</div><!--"brand"-->		
 		
@@ -69,26 +67,7 @@
     	
 	
 	  
-	  
-	<script>
-  window.onload= function() {
-     document.getElementById('toggler').onclick = function() {
-         openbox('box', this);
-         return false;
-     };
-  };
-  function openbox(id, toggler) {
-     var div = document.getElementById(id);
-     if(div.style.display == 'block') {
-         div.style.display = 'none';
-         toggler.innerHTML = '<i class="fa fa-info-circle" aria-hidden="true"></i>';
-     }
-     else {
-         div.style.display = 'block';
-         toggler.innerHTML = '<i class="fa fa-ban" aria-hidden="true"></i>';
-     }
-  }
-  </script> 
+	
 	  
 	  
 	  
@@ -96,15 +75,13 @@
 	<div id="navigation">
    	 <ul class="nav-list">
 
-<!--li id="js-show-all" class="btn btn-circle"><i class="fa fa-info-circle" aria-hidden="true"></i></li-->
-        <li  id="js-show-all" class="btn btn-circle"><!--a  href="#"--><!--a href="#"  onclick="openbox('box'); return false"-->
+
+        <li  id="js-show-all" class="btn btn-circle">
 		<i class="fa fa-users" aria-hidden="true"></i><!--/a--></li>
-        <li id="js-search" class="btn btn-circle"><!--a  href="#"><!--a href="#"  onclick="openbox('box'); return false"-->
+        <li id="js-search" class="btn btn-circle">
 		<i class="fa fa-search" aria-hidden="true"></i><!--/a--></li>
-	<!--li id="js-search" class="btn btn-circle"><i class="fa fa-search" aria-hidden="true"></i></li>
-        <!--li><a href="#"  id="js-add-new" class="btn btn-circle">
-		<i class="fa fa-plus" aria-hidden="true"></i></a></li-->
-	<li id="js-add-new" class="btn btn-circle"><!--a  href="#"><!--a href="#"  onclick="openbox('box'); return false"-->
+	
+	<li id="js-add-new" class="btn btn-circle">
 		<i class="fa fa-plus" aria-hidden="true"></i><!--/a--></li>
 
     	</ul>
@@ -144,7 +121,7 @@
 <script>
 function searchContact() {
     let input, filter, ul, li, a, i;
-    input = document.getElementById("contactInput");
+    input = document.getElementById("search");
     filter = input.value.toUpperCase();
     ul = document.getElementById("conactsList");
     li = ul.getElementsByTagName("li");
@@ -160,6 +137,25 @@ function searchContact() {
 }
 </script> 
   
+	<script>
+  window.onload= function() {
+     document.getElementById('toggler').onclick = function() {
+         openbox('box', this);
+         return false;
+     };
+  };
+  function openbox(id, toggler) {
+     var div = document.getElementById(id);
+     if(div.style.display == 'block') {
+         div.style.display = 'none';
+         toggler.innerHTML = '<i class="fa fa-info-circle" aria-hidden="true"></i>';
+     }
+     else {
+         div.style.display = 'block';
+         toggler.innerHTML = '<i class="fa fa-ban" aria-hidden="true"></i>';
+     }
+  }
+  </script>   
 <style>
 * {
   box-sizing: border-box;
