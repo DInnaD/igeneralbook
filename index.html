@@ -73,9 +73,40 @@
         </form>
     </div>
 </div>
+ <div id="form2" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="" method="get" name="contact" id="formEdit">
+            <label for="name1">Name:</label> <input type="text" name="name1" value="11" id="name1Edit"><br><br>
+            <label for="surname">Surname:</label><input type="text" name="surname" value="" id="surnameEdit"><br><br>
+            <label for="phone">Phone:</label><input type="text" name="phone" value="" id="phoneEdit">
+                <a onclick="return addField()" href="#">Add phone</a>
+                <div id="parentId"></div><br>
+            <label for="emale">E-mail:</label><input type="text" name="email" value="" id="emaleEdit">
+                <a onclick="return EaddField()" href="#">Add E-male</a>
+                <div id="EparentId"></div><br>
+            <input type="button" onclick="saveContact(document.getElementById('form'))" name="submit" value="Add contact" id="vvod">
+        </form>
+    </div>
+</div>
  
 <script>
-	
+/*
+(index):122 Uncaught SyntaxError: Identifier 'id' has already been declared
+    at HTMLInputElement.onclick ((index):72)<input type="button" onclick="saveContact(document.getElementById('form'))" name="submit" value="Add contact" id="vvod">
+
+(index):225 Uncaught TypeError: Cannot read property 'appendChild' of null
+    at initContacts ((index):225)
+    at saveContact ((index):211)
+    at HTMLInputElement.onclick ((index):72)
+initContacts  @ (index): 225 document.getElementById("contactsList").appendChild(li);
+saveContact @ (index): 211 
+ // Re-fetch contacts - ne realizovana
+initContacts();
+onclick @ (index): 72 <input type="button" onclick="saveContact(document.getElementById('form'))" name="submit" value="Add contact" id="vvod">
+
+
+*/	
 let tmpObj = {
 
       id: [],
@@ -85,10 +116,14 @@ let tmpObj = {
     emails1: []
    
 };
-	
+let modal = document.getElementById("form2");
+let btnEdit = document.getElementById("addEdit");	
 let modal = document.getElementById("form1");
 let btn = document.getElementById("add");
 let span = document.getElementsByClassName("close")[0];
+btnEdit.onclick = function () {
+    modal.style.display = "block"
+};
 btn.onclick = function () {
     modal.style.display = "block"
 };
@@ -96,6 +131,12 @@ btn.onclick = function () {
 span.onclick = function () {
     modal.style.display = "none"
 };
+	
+	
+	
+	let saveBtn = getElementById('editSave');
+saveBtn.setAttribute: dataContactId, tmpObj.id;
+saveBtn.addEdit.getElementById('click', saveContact);
 //Generate id of each contact
 
 function generateId(){  
@@ -118,8 +159,8 @@ function generateId(){
 }
 
 function saveContact(id, form) {
-//let id = generateId();//or 
- let id = this.getAttribute('id');
+
+ //let id = this.getAttribute('id');
 
  if (typeof (id) == 'undefined') {
   
@@ -218,7 +259,27 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
 	 
 } 
 
-function initContacts() {
+let tmpObjs = localStorage['tmpObjs'];
+let block = document.getElementById('contactsList');
+contacts.forEach(function(element, int, arr) {
+  let row = document.createElement('li').
+  row.innerText = dataClientId = "<li>" + element.name + "" + element.phone + "" + "</li>";
+  row.setAttribute() = dataClientId.element.id.elementId;
+  block.appendChild(row);
+  row.addEventListener('click', click);
+})
+
+function click() {
+  let = this.getAttribute('id');
+  let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
+  let currentContact;
+  tmpObjs.forEach(element) {
+    if (id === element.id) {
+      currentContact = element;
+    }
+  }
+}
+	/*
     for (var i = 0; i < localStorage.length; i++) {
         var key1 = localStorage.key(i);
         var li = document.createElement("li");
@@ -226,7 +287,7 @@ function initContacts() {
         document.getElementById("contactsList").appendChild(li);
 
     }
-}	
+}	*/
 	
 function searchContact() {
     let input, filter, ul, li, a, i;
