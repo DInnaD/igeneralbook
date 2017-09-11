@@ -23,59 +23,7 @@
     <![endif]-->
 </head>
 <body>
-	<style>
-		.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal2 {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content{
-    background-color: antiquewhite;
-    margin: 15% auto;
-    padding: 20px;
-    border: 2px solid #2a8539;
-    border-radius: 2px;
-    width: 80%;
-    font-size: 18px;
-    font-family: "Arial";
-    color: rgb(0, 0, 0);
-    line-height: 1.667;
-    text-align: left;
-}
-
-.modal-content2{
-    background-color: #64fac0;
-    margin: 15% auto;
-    padding: 20px;
-    border: 2px solid #856539;
-    border-radius: 2px;
-    width: 80%;
-    font-size: 18px;
-    font-family: "Arial";
-    color: rgb(0, 0, 0);
-    line-height: 1.667;
-    text-align: left;
-}
-		</style>
+	
 	<div id="mymap" style="position: absolute !important; top: 0px;"></div>
 	<div id="contactform">
 		<span><input id="search" onkeyup="searchContact()" placeholder="Search.." title="" type="text"></span> <span><button onclick="talk()" style="background: none; border:none; padding-top: 3px;"><span><i aria-hidden="true" class="fa fa-microphone"></i></span></button></span> <span><button onclick="stop()" style="background: none; border:none; padding-top: 3px;"><span><i aria-hidden="true" class="fa fa-microphone-slash"></i></span></button></span>
@@ -171,7 +119,7 @@ tmpObjs.push(tmpObj);
    
  // Init array
 let tmpObjs = [];
-tmpObjs.push(contact);
+tmpObjs.push(tmpObj);
 
 
             // Put the object into storage
@@ -183,7 +131,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     // Get bookmarks from localStorage
     let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
     // Add bookmark to array
-    tmpObjs.push(tmpObjs);
+    tmpObjs.push(tmpObj);
     // Re-set back to localStorage
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
   }
@@ -703,7 +651,59 @@ a {
 		
 		
 </style> 
-		
+<style>
+		.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content{
+    background-color: antiquewhite;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #2a8539;
+    border-radius: 2px;
+    width: 80%;
+    font-size: 18px;
+    font-family: "Arial";
+    color: rgb(0, 0, 0);
+    line-height: 1.667;
+    text-align: left;
+}
+
+.modal-content2{
+    background-color: #64fac0;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #856539;
+    border-radius: 2px;
+    width: 80%;
+    font-size: 18px;
+    font-family: "Arial";
+    color: rgb(0, 0, 0);
+    line-height: 1.667;
+    text-align: left;
+}
+		</style>		
 <script>
 var map = null;
 // When the window has finished loading create our google map below
