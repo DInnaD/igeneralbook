@@ -126,7 +126,7 @@ function saveContact(fotm) {
 /* let id = this.getAttribute('id');
 
  if (typeof (id) == 'undefined') {
-	
+	*/
     tmpObj.name = document.getElementsByName("name1")[0].value;
     tmpObj.surname = document.getElementsByName('surname')[0].value;
     var phones = document.getElementsByName('phone');
@@ -164,8 +164,9 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     // Re-set back to localStorage
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
   }
+	/*
  }else{
- */
+ 
  
     tmpObj.name = document.getElementsByName("name1")[0].value;
     tmpObj.surname = document.getElementsByName('surname')[0].value;
@@ -183,20 +184,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
  let key_int = localStorage.length + 1;
     tmpObj.id = key_int;	 
 let id = tmpObj.id;//generateId();
-/*let tmpObj = { 
-			id: id,
-                 name: [],
-		surname: [],
-                 phones1: [],
-		emails1: []
-                 //url: url,
-                 //info_1: info_1,
-                 //info_2: info_2,
-                 //info_3: info_3,
-                 //info_4: info_4,
-                 //info_5: info_5
- };
-*/	
+	
 	// Test if bookmarks is null
   if(localStorage.getItem('tmpObjs') === null){
    
@@ -216,7 +204,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     // Re-set back to localStorage
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
  }	
-	
+*/	
     alert('Contact ' + tmpObj.name + ' added to memory');
     window.location.reload();
 }	
