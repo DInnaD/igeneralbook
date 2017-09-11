@@ -22,7 +22,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body onload="initCntacts()">
 	
 	<div id="mymap" style="position: absolute !important; top: 0px;"></div>
 	<div id="contactform">
@@ -201,7 +201,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
   initContacts();	 
 } 
 
-function initContact() {
+function initContacts() {
     for (var i = 0; i < localStorage.length; i++) {
         var key1 = localStorage.key(i);
         var li = document.createElement("li");
