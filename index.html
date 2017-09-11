@@ -23,6 +23,59 @@
     <![endif]-->
 </head>
 <body>
+	<style>
+		.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content{
+    background-color: antiquewhite;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #2a8539;
+    border-radius: 2px;
+    width: 80%;
+    font-size: 18px;
+    font-family: "Arial";
+    color: rgb(0, 0, 0);
+    line-height: 1.667;
+    text-align: left;
+}
+
+.modal-content2{
+    background-color: #64fac0;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #856539;
+    border-radius: 2px;
+    width: 80%;
+    font-size: 18px;
+    font-family: "Arial";
+    color: rgb(0, 0, 0);
+    line-height: 1.667;
+    text-align: left;
+}
+		</style>
 	<div id="mymap" style="position: absolute !important; top: 0px;"></div>
 	<div id="contactform">
 		<span><input id="search" onkeyup="searchContact()" placeholder="Search.." title="" type="text"></span> <span><button onclick="talk()" style="background: none; border:none; padding-top: 3px;"><span><i aria-hidden="true" class="fa fa-microphone"></i></span></button></span> <span><button onclick="stop()" style="background: none; border:none; padding-top: 3px;"><span><i aria-hidden="true" class="fa fa-microphone-slash"></i></span></button></span>
@@ -38,7 +91,7 @@
 			<ul class="nav-list">
 				<li class="btn btn-circle" id="js-show-all"><i aria-hidden="true" class="fa fa-users"></i></li>
 				<li class="btn btn-circle" id="js-search"><i aria-hidden="true" class="fa fa-search"></i></li>
-				<li class="btn btn-circle" id="js-add-new"><i aria-hidden="true" class="fa fa-plus"></i></li>
+				<li class="btn btn-circle" id="add"><i aria-hidden="true" class="fa fa-plus"></i></li>
 			</ul>
 		</div>
 		<hr>
@@ -56,8 +109,64 @@
 			</li>
 		</ul>
 	</div>
+	<div id="form1" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="" method="get" name="contact" id="form">
+            <label for="name1">Name:</label> <input type="text" name="name1" value="11" id="name1"><br><br>
+            <label for="surname">Surname:</label><input type="text" name="surname" value="" id="surname"><br><br>
+            <label for="phone">Phone:</label><input type="text" name="phone" value="" id="phone">
+                <a onclick="return addField()" href="#">Add phone</a>
+                <div id="parentId"></div><br>
+            <label for="emale">E-mail:</label><input type="text" name="email" value="" id="emale">
+                <a onclick="return EaddField()" href="#">Add E-male</a>
+                <div id="EparentId"></div><br>
+            <input type="button" onclick="valid(document.getElementById('form'))" name="submit" value="Add contact" id="vvod">
+        </form>
+    </div>
+</div>
  
 <script>
+	
+var tmpObj = {};
+
+var modal = document.getElementById("form1");
+var btn = document.getElementById("add");
+var span = document.getElementsByClassName("close")[0];
+
+// Вывод окна ввода контакта
+
+btn.onclick = function () {
+    modal.style.display = "block"
+};
+
+span.onclick = function () {
+    modal.style.display = "none"
+};
+
+// Обработка формы
+
+function valid (fotm) {
+    tmpObj.name = document.getElementsByName("name1")[0].value;
+    tmpObj.surname = document.getElementsByName('surname')[0].value;
+    var phones = document.getElementsByName('phone');
+    tmpObj.phones1=[];
+    for(var i = 0; i<phones.length; i++){
+        tmpObj.phones1.push(phones[i].value);
+    }
+    var emails = document.getElementsByName('email');
+    tmpObj.emails1=[];
+    for(var i = 0; i<emails.length; i++){
+        tmpObj.emails1.push(emails[i].value);
+    }
+
+   localStorage.setItem(tmpObj.name, JSON.stringify(tmpObj));
+
+    alert('Contact ' + tmpObj.name + ' added to memory');
+    window.location.reload();
+}	
+	
+	
 function searchContact() {
     let input, filter, ul, li, a, i;
     input = document.getElementById("search");
