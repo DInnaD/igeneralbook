@@ -147,6 +147,7 @@ span.onclick = function () {
 // Обработка формы
 
 function valid (fotm) {
+	
     tmpObj.name = document.getElementsByName("name1")[0].value;
     tmpObj.surname = document.getElementsByName('surname')[0].value;
     var phones = document.getElementsByName('phone');
@@ -159,8 +160,9 @@ function valid (fotm) {
     for(var i = 0; i<emails.length; i++){
         tmpObj.emails1.push(emails[i].value);
     }
-
-   localStorage.setItem(tmpObj.name, JSON.stringify(tmpObj));
+let tmpObjs=[];
+tmpObjs.push(tmpObj);	
+   localStorage.setItem(tmpObjs, JSON.stringify(tmpObjs));
 
     alert('Contact ' + tmpObj.name + ' added to memory');
     window.location.reload();
