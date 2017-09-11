@@ -118,8 +118,10 @@ let tmpObj = {
 };
 let modal = document.getElementById("form2");
 let btnEdit = document.getElementById("addEdit");	
+btnEdit.setAttribute: dataContactId, tmpObj.id;
+btnEdit.addEdit.getElementById('click', saveContact);	
 let modal = document.getElementById("form1");
-let btn = document.getElementById("add");
+let btn = document.getElementById("addMore");
 let span = document.getElementsByClassName("close")[0];
 btnEdit.onclick = function () {
     modal.style.display = "block"
@@ -134,9 +136,7 @@ span.onclick = function () {
 	
 	
 	
-	let saveBtn = getElementById('editSave');
-saveBtn.setAttribute: dataContactId, tmpObj.id;
-saveBtn.addEdit.getElementById('click', saveContact);
+
 //Generate id of each contact
 
 function generateId(){  
@@ -258,12 +258,15 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
 	 
 	 
 } 
-
+function initContacts() {
 let tmpObjs = localStorage['tmpObjs'];
 let block = document.getElementById('contactsList');
-contacts.forEach(function(element, int, arr) {
+tmpObjs.forEach(function(element, int, arr) {
   let row = document.createElement('li').
-  row.innerText = dataClientId = "<li>" + element.name + "" + element.phone + "" + "</li>";
+  row.innerText = dataClientId = "<li>" + element.name + "" + element.phone + "" + ' <a onclick="moreContact id="addMore" class="btn btn-circle" href="#">More</a> ' +
+                                  ' <a onclick="editContact id="addEdit" class="btn btn-circle" href="#">Edit</a> ' + 
+                                  ' <a onclick="deleteBookmark(\''+element.name+element.phone+'\')" class="btn btn-circle" href="#">Delete</a> ' +
+                                  "</li>";
   row.setAttribute() = dataClientId.element.id.elementId;
   block.appendChild(row);
   row.addEventListener('click', click);
