@@ -157,9 +157,7 @@ function searchContact() {
   }
   </script>   
 <style>
-* {
-  box-sizing: border-box;
-}
+
 
 #contactInput {
   background-image: url('/css/searchicon.png');
@@ -170,12 +168,14 @@ function searchContact() {
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
+	box-sizing: border-box;
 }
 
 #conactsList {
   list-style-type: none;
   padding: 0;
   margin: 0;
+	box-sizing: border-box;
 }
 
 #conactsList li a {
@@ -187,15 +187,18 @@ function searchContact() {
   font-size: 18px;
   color: black;
   display: block
+	  box-sizing: border-box;
 }
 
 #conactsList li a.header {
   background-color: #e2e2e2;
   cursor: default;
+	box-sizing: border-box;
 }
 
 #conactsList li a:hover:not(.header) {
   background-color: #eee;
+	box-sizing: border-box;
 }
 </style>  
   
