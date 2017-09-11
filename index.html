@@ -93,6 +93,7 @@ span.onclick = function () {
 };
 
 //Generate id of each contact
+	/*
 function generateId(){	
 	   
     //let key_int = localStorage.length + 1;
@@ -111,7 +112,7 @@ function generateId(){
 }
 
 }
-
+*/
 function saveContact(id, fotm) {
 //let id = generateId();//or 
 /* let id = this.getAttribute('id');
@@ -171,8 +172,9 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
         tmpObj.emails1.push(emails[i].value);
     }
 	 
-	 
-let id = generateId();
+ let key_int = localStorage.length + 1;
+    tmpObj.id = key_int;	 
+let id = tmpObj.id;//generateId();
 let tmpObj = { 
 			id: id,
                  name: [],
