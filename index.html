@@ -118,7 +118,7 @@ function generateId(){
 }
 
 function saveContact(id, form) {
-let id = generateId();//or 
+//let id = generateId();//or 
  let id = this.getAttribute('id');
 
  if (typeof (id) == 'undefined') {
@@ -184,7 +184,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
  //let key_int = localStorage.length + 1;
   // tmpObj.id = key_int;   
 //let id = tmpObj.id;
-	 //	 let id = generateId();
+		 let id = generateId();
   
   // Test if bookmarks is null
   if(localStorage.getItem('tmpObjs') === null){
