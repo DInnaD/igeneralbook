@@ -76,7 +76,14 @@
  
 <script>
 	
-var tmpObj = {};
+var tmpObj = {
+ 
+			id: [],
+                 name: [],
+		surname: [],
+                 phones1: [],
+		emails1: []
+};
 
 var modal = document.getElementById("form1");
 var btn = document.getElementById("add");
@@ -113,7 +120,7 @@ function generateId(){
 
 }
 */
-function saveContact(id, fotm) {
+function saveContact(fotm) {
 //let id = generateId();//or 
 /* let id = this.getAttribute('id');
 
@@ -175,7 +182,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
  let key_int = localStorage.length + 1;
     tmpObj.id = key_int;	 
 let id = tmpObj.id;//generateId();
-let tmpObj = { 
+/*let tmpObj = { 
 			id: id,
                  name: [],
 		surname: [],
@@ -188,7 +195,7 @@ let tmpObj = {
                  //info_4: info_4,
                  //info_5: info_5
  };
-	
+*/	
 	// Test if bookmarks is null
   if(localStorage.getItem('tmpObjs') === null){
    
@@ -213,7 +220,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     window.location.reload();
 }	
 
-function seeCntakt() {
+function initContact() {
     for (var i = 0; i < localStorage.length; i++) {
         var key1 = localStorage.key(i);
         var li = document.createElement("li");
