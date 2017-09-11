@@ -116,12 +116,18 @@ let tmpObj = {
     emails1: []
    
 };
-let modal = document.getElementById("form2");
+
+
+
+	
+let modal = document.getElementById("form1");
+let modal = document.getElementById("form2");	
 let btnEdit = document.getElementById("addEdit");	
 btnEdit.setAttribute: dataContactId, tmpObj.id;
 btnEdit.addEdit.getElementById('click', saveContact);	
-let modal = document.getElementById("form1");
-let btn = document.getElementById("addMore");
+let btnMore = document.getElementById("addMore");	
+btnMore.setAttribute: dataContactId, tmpObj.id;	
+
 let span = document.getElementsByClassName("close")[0];
 btnEdit.onclick = function () {
     modal.style.display = "block"
@@ -129,13 +135,16 @@ btnEdit.onclick = function () {
 btn.onclick = function () {
     modal.style.display = "block"
 };
-
+btnMore.onclick = function () {
+    modal.style.display = "block"
+};//init without
 span.onclick = function () {
     modal.style.display = "none"
 };
+
 	
-	
-	
+
+		
 
 //Generate id of each contact
 
