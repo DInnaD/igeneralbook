@@ -35,36 +35,18 @@
     <![endif]-->
 </head>
 <body> 
-<div id="mymap"></div>
+<div id="mymap" style: absolute !important;></div>
 	
-	
+
+	<div id="contactform">	
  
-	<style> 
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 0;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 19px 10px 2px 50px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-input[type=text]:focus {
-    width: 100%;
-}
-</style>
 
 
 
 
 <form id="search" action="#">
   
-	<span><input id="search" type="text" name="search" placeholder="Search.."></span> 
+	<span><!--input id="search" type="text" name="search" placeholder="Search.."--><input type="text" id="search" onkeyup="searchContact()" placeholder="Search.." title=""></span> 
 		<span> <button onclick="talk()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone" aria-hidden="true" ></i></button></span>
  
 		<span><button onclick="stop()" style="background: none; border:none; padding-top: 3px;"><i class="fa fa-microphone-slash" aria-hidden="true" ></i></button></span>
@@ -129,15 +111,13 @@ input[type=text]:focus {
 	</div>
 	  <!--button onclick="speech ()">Слушать</button-->
  
-<hr> 
+<hr> </div><!--black-->
+
 	<div id="contactform">
-	
-</head>
-<body>
 
-<h2></h2>
 
-<input type="text" id="contactInput" onkeyup="searchContact()" placeholder="Search for names.." title="Type in a name">
+
+
 
 <ul id="conactsList">
   <li><a href="#" class="header">A</a></li>
@@ -155,9 +135,9 @@ input[type=text]:focus {
 </ul>
 
 	
+</div><!--black-->	
 	
 	
-	</div><!--"black"-->
  
 	
  
@@ -223,7 +203,26 @@ function searchContact() {
 }
 </style>  
   
-  
+
+	<style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 19px 10px 2px 50px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+</style>  
   
   
   
