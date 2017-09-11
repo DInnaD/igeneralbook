@@ -77,16 +77,27 @@
 <script>
 	
 let tmpObj = {
-/*
+
       id: [],
                  name: [],
     surname: [],
                  phones1: [],
     emails1: []
-   */
+   
+};
+	
+let modal = document.getElementById("form1");
+let btn = document.getElementById("add");
+let span = document.getElementsByClassName("close")[0];
+btn.onclick = function () {
+    modal.style.display = "block"
+};
+
+span.onclick = function () {
+    modal.style.display = "none"
 };
 //Generate id of each contact
-/*  
+ 
 function generateId(){  
      
     //let key_int = localStorage.length + 1;
@@ -104,9 +115,9 @@ function generateId(){
  }
 }
 
-}*/
+}
 
-function saveContact(id, fotm) {/*
+function saveContact(id, fotm) {
 //let id = generateId();//or 
  let id = this.getAttribute('id');
 
@@ -151,7 +162,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
   }
   
  }else{
- */
+ 
  
     tmpObj.name = document.getElementsByName("name1")[0].value;
     tmpObj.surname = document.getElementsByName('surname')[0].value;
