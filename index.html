@@ -165,7 +165,16 @@ function valid (fotm) {
     alert('Contact ' + tmpObj.name + ' added to memory');
     window.location.reload();
 }	
-	
+
+function seeCntakt() {
+    for (var i = 0; i < localStorage.length; i++) {
+        var key1 = localStorage.key(i);
+        var li = document.createElement("li");
+        li.innerHTML = "<a onclick=\"see('"+key1+"')\" href=\"#\" >" + key1 + "</a>";
+        document.getElementById("contactsList").appendChild(li);
+
+    }
+}	
 	
 function searchContact() {
     let input, filter, ul, li, a, i;
