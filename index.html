@@ -75,26 +75,7 @@
 </div>
  
 <script>
-//Generate id of each contact
-/* 
-function generateId(){  
-     
-    //let key_int = localStorage.length + 1;
-    //key.id = key_int;
-
-    try{
-   if(localStorage[tmpObjs].length === 0){ return 1;
-    }else{
-      var contact_int = localStorage.length - 1;
-        return tmpObj.id = contact_int + 1;
-      }
-          } catch (e) {
-  if (e !==  tmpObj.id) {
-  alert('Error data');
- }
-}
-
-}*/	
+	
 let tmpObj = {
 
       id: [],
@@ -115,7 +96,26 @@ btn.onclick = function () {
 span.onclick = function () {
     modal.style.display = "none"
 };
+//Generate id of each contact
 
+function generateId(){  
+     
+    //let key_int = localStorage.length + 1;
+    //key.id = key_int;
+
+    try{
+   if(localStorage[tmpObjs].length === 0){ return 1;
+    }else{
+      var contact_int = localStorage.length - 1;
+        return tmpObj.id = contact_int + 1;
+      }
+          } catch (e) {
+  if (e !==  tmpObj.id) {
+  alert('Error data');
+ }
+}
+
+}
 
 function saveContact(id, form) {
 let id = generateId();//or 
