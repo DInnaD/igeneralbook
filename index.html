@@ -22,7 +22,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body  onload="initCntacts()">
 	
 	<div id="mymap" style="position: absolute !important; top: 0px;"></div>
 	<div id="contactform">
@@ -77,16 +77,16 @@
 <script>
 	
 let tmpObj = {
-
+/*
       id: [],
                  name: [],
     surname: [],
                  phones1: [],
     emails1: []
-   
+   */
 };
 //Generate id of each contact
-  
+/*  
 function generateId(){  
      
     //let key_int = localStorage.length + 1;
@@ -104,9 +104,9 @@ function generateId(){
  }
 }
 
-}
+}*/
 
-function saveContact(id, fotm) {
+function saveContact(id, fotm) {/*
 //let id = generateId();//or 
  let id = this.getAttribute('id');
 
@@ -151,7 +151,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
   }
   
  }else{
- 
+ */
  
     tmpObj.name = document.getElementsByName("name1")[0].value;
     tmpObj.surname = document.getElementsByName('surname')[0].value;
