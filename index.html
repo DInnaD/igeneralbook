@@ -132,13 +132,13 @@ onclick @ (index): 72 <input type="button" onclick="saveContact(document.getElem
 
 */	
 let tmpObj = {
-/*
-      id: [],
-                 name: [],
-    surname: [],
-                 phones1: [],
-    emails1: []
-   */
+
+      //id: [],
+      //           name: [],
+    //surname: [],
+     //            phones1: [],
+   // emails1: []
+   
 };
 
 
@@ -210,7 +210,7 @@ btnEdit.addEditfForm2.getElementById('click', saveContact);
 
 function saveContact(id, form) {
 //let id = tmpObj.id;//
- let id = this.getAttribute('id');
+/* let id = this.getAttribute('id');
 
  if (typeof (id) == 'undefined') {
   
@@ -263,7 +263,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
 alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
     window.location.reload();	 
  }else{
- 
+ */
  
     let name1 = tmpObj.name = document.getElementsByName("name1")[0].value;
     let surname = tmpObj.surname = document.getElementsByName('surname')[0].value;
@@ -288,7 +288,7 @@ alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
  //let key_int = localStorage.length + 1;
   // tmpObj.id = key_int;   
 //let id = tmpObj.id;
- let id = generateId();
+ //let id = generateId();
   
   // Test if bookmarks is null
   if(localStorage.getItem('tmpObjs') === null){
@@ -370,8 +370,10 @@ tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
 	
 function initContacts(currentContact) {
 let tmpObjs = localStorage['tmpObjs'];
+	//// Get bookmarks from localStorage
+  let mpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
 let block = document.getElementById('contactsList');
-tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
+tmpObjs.forEach(function(currentContact, int, tmpObjs) {
   let row = document.createElement('li').
   row.innerText = dataClientId = "<li>" + tmpObj.name1 + "" + tmpObj.phone + "" + tmpObj.url + "" + tmpObj.urlExtra + "" + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.url+'">Visit</a> ' + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.urlExtra+'">Visit</a> ' + ' <a onclick="compareContact id="addCompareForm3" class="btn btn-circle" href="#">Compare</a> ' +
                                   ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
