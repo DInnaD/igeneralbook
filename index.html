@@ -132,13 +132,13 @@ onclick @ (index): 72 <input type="button" onclick="saveContact(document.getElem
 
 */	
 let tmpObj = {
-
+/*
       id: [],
                  name: [],
     surname: [],
                  phones1: [],
     emails1: []
-   
+   */
 };
 
 
@@ -154,7 +154,7 @@ span.onclick = function () {
     modal.style.display = "none"
 };
 
-	
+//Generate id of each contact	
 function generateId(){  
      
     //let key_int = localStorage.length + 1;
@@ -202,13 +202,13 @@ btnMore.setAttribute: dataContactId, tmpObj.id;
 
 		
 
-//Generate id of each contact
+
 
 
 
 function saveContact(id, form) {
 
- //let id = this.getAttribute('id');
+ let id = this.getAttribute('id');
 
  if (typeof (id) == 'undefined') {
   
@@ -263,25 +263,30 @@ alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
  }else{
  
  
-    tmpObj.name = document.getElementsByName("name1")[0].value;
-    tmpObj.surname = document.getElementsByName('surname')[0].value;
-    var phones = document.getElementsByName('phone');
-    tmpObj.phones1=[];
-    for(var i = 0; i<phones.length; i++){
-        tmpObj.phones1.push(phones[i].value);
+    let name1 = tmpObj.name = document.getElementsByName("name1")[0].value;
+    let surname = tmpObj.surname = document.getElementsByName('surname')[0].value;
+    let phone = document.getElementsByName('phone');
+    let phoneExtra = tmpObj.phoneExtra=[];
+    for(let i = 0; i<phone.length; i++){
+        tmpObj.phoneExtra.push(phone[i].value);
     }
-    var emails = document.getElementsByName('email');
-    tmpObj.emails1=[];
-    for(var i = 0; i<emails.length; i++){
-        tmpObj.emails1.push(emails[i].value);
+    let email = document.getElementsByName('email');
+    let emailExtra = tmpObj.emailExtra=[];
+    for(let i = 0; i<email.length; i++){
+        tmpObj.emailExtra.push(email[i].value);
     }
+    let url = document.getElementsByName('url');
+    let urlExtra = tmpObj.urlExtra=[];
+    for(let i = 0; i<url.length; i++){
+        tmpObj.urlExtra.push(url[i].value);
+    }	 
    if(!validateForm(name1, surname, phone, phoneExtra, email, emailExtra, url, urlExtra)){
     return false;
   }
  //let key_int = localStorage.length + 1;
   // tmpObj.id = key_int;   
 //let id = tmpObj.id;
-		 let id = generateId();
+ let id = generateId();
   
   // Test if bookmarks is null
   if(localStorage.getItem('tmpObjs') === null){
@@ -317,7 +322,8 @@ alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
 	 
 } 
 	
-function click() {
+
+function click(id) {
   let = this.getAttribute('id');
   let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
   let currentContact;
@@ -327,7 +333,7 @@ function click() {
     }
   }
 }	
-function initContacts() {
+function initContacts(id) {
 let tmpObjs = localStorage['tmpObjs'];
 let block = document.getElementById('contactsList');
 tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
@@ -340,7 +346,7 @@ tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
   block.appendChild(row);
   row.addEventListener('click', click);
 })
-function moreContact() {
+function moreContact(id) {
 let tmpObjs = localStorage['tmpObjs'];
 let block2 = document.getElementById('contactListMore');
 tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
@@ -353,7 +359,6 @@ tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
   block.appendChild(row);
   row.addEventListener('click', click);
 })
-
 	/*
     for (var i = 0; i < localStorage.length; i++) {
         var key1 = localStorage.key(i);
