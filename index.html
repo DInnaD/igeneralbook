@@ -93,7 +93,7 @@ function validate_form ( )
 </div>
  <div id="form2" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close2">&times;</span>
         <form action="" method="get" name="contact" id="formEdit">
             <label for="name1">Name:</label> <input type="text" name="name1" value="11" id="name1Edit"><br><br>
             <label for="surname">Surname:</label><input type="text" name="surname" value="" id="surnameEdit"><br><br>
@@ -146,7 +146,7 @@ let tmpObj = {
 	
 let modal = document.getElementById("form1");
 let btn = document.getElementById("add");	
-//let span = document.getElementsByClassName("close")[0];	
+let span = document.getElementsByClassName("close")[0];	
 btn.onclick = function () {
     modal.style.display = "block"
 };	
@@ -175,6 +175,7 @@ function generateId(){
 }	
 let modal2 = document.getElementById("form2");
 let btnEdit = document.getElementById("addEditForm2");
+	let span2 = document.getElementsByClassName("close2")[0];	
 btnEdit.onclick = function () {
     modal2.style.display = "block"
 };
@@ -186,19 +187,20 @@ btnEdit.addEditfForm2.getElementById('click', saveContact);
 	
 
 
-let modal3 = document.getElementById("form3");
-btnMore.onclick = function () {
-    modal3.style.display = "block"
-};//init without
-span.onclick = function () {
-    modal3.style.display = "none"
-};
+//let modal3 = document.getElementById("form3");
 	
-let btnMore = document.getElementById("addMoreForm3");	
-btnMore.setAttribute: dataContactId, tmpObj.id;	
+//btnMore.onclick = function () {
+    //modal3.style.display = "block"
+//};//init without
+//span.onclick = function () {
+   // modal3.style.display = "none"
+//};
+	
+//let btnMore = document.getElementById("addMoreForm3");	
+//btnMore.setAttribute: dataContactId, tmpObj.id;	
 
 
-let span = document.getElementsByClassName("close")[0];		
+	
 
 		
 
