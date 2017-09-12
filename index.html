@@ -40,7 +40,7 @@ function validate_form ( )
 //-->
 </script>
 </head>
-<body  onload="initCntacts()">
+<body  onload="initCntacts() initCntact()">
 	
 	<div id="mymap" style="position: absolute !important; top: 0px;"></div>
 	<div id="contactform">
@@ -79,14 +79,14 @@ function validate_form ( )
     <div class="modal-content">
         <span class="close">&times;</span>
         <form action="" method="get" name="contact" id="form">
-            <label for="name1">Name:</label> <input type="text" name="name1" value="11" id="name1"><br><br>
-            <label for="surname">Surname:</label><input type="text" name="surname" value="" id="surname"><br><br>
-            <label for="phone">Phone:</label><input type="text" name="phone" value="" id="phone">
-                <a onclick="return addField()" href="#">Add phone</a>
-                <div id="parentId"></div><br>
-            <label for="emale">E-mail:</label><input type="text" name="email" value="" id="emale">
-                <a onclick="return EaddField()" href="#">Add E-male</a>
-                <div id="EparentId"></div><br>
+            <label for="name1"></label> <input type="text" name="name1" value="11" id="name1" placeholder="Name"><br><br>
+            <label for="surname"></label><input type="text" name="surname" value="" id="surname" placeholder="Surname"><br><br>
+            <label for="phone"></label><input type="text" name="phone" value="" id="phone" placeholder="Phone:e"
+                <a onclick="return addFieldP()" href="#">Extra Phone</a>
+                <div id="parentIdP"></div><br>
+            <label for="email"></label><input type="text" name="email" value="" id="email" placeholder="E-mail">
+                <a onclick="return addFieldE()" href="#">Extra E-mail</a>
+                <div id="parentIdE"></div><br>
             <input type="button" onclick="saveContact(document.getElementById('form'))" name="submit" value="Add contact" id="vvod">
         </form>
     </div>
@@ -97,12 +97,10 @@ function validate_form ( )
         <form action="" method="get" name="contact" id="formEdit">
             <label for="name1">Name:</label> <input type="text" name="name1" value="11" id="name1Edit"><br><br>
             <label for="surname">Surname:</label><input type="text" name="surname" value="" id="surnameEdit"><br><br>
-            <label for="phone">Phone:</label><input type="text" name="phone" value="" id="phoneEdit">
-                <a onclick="return addField()" href="#">Add phone</a>
-                <div id="parentId"></div><br>
-            <label for="emale">E-mail:</label><input type="text" name="email" value="" id="emaleEdit">
-                <a onclick="return EaddField()" href="#">Add E-male</a>
-                <div id="EparentId"></div><br>
+            <label for="phone">Phone:</label><input type="text" name="phone" value="" id="phoneEdit"><br>
+		<label for="phone">Extra Phone:</label><input type="text" name="phoneExtra" value="" id="phoneEdit"><br>
+            <label for="email">E-mail:</label><input type="text" name="email" value="" id="emailEditExstra"><br>
+		<label for="email">Extra E-mail:</label><input type="text" name="emailExtra" value="" id="emailEditExtra"><br>
             <input type="button" onclick="saveContact(document.getElementById('form2'))" name="submit" value="Add contact" id="vvod">
         </form>
     </div>
@@ -155,7 +153,26 @@ btn.onclick = function () {
 span.onclick = function () {
     modal.style.display = "none"
 };
+
 	
+function generateId(){  
+     
+    //let key_int = localStorage.length + 1;
+    //key.id = key_int;
+
+    try{
+   if(localStorage[tmpObjs].length === 0){ return 1;
+    }else{
+      var contact_int = localStorage.length - 1;
+        return tmpObj.id = contact_int + 1;
+      }
+          } catch (e) {
+  if (e !==  tmpObj.id) {
+  alert('Error data');
+ }
+}
+
+}	
 let modal2 = document.getElementById("form2");
 let btnEdit = document.getElementById("addEditForm2");
 btnEdit.onclick = function () {
@@ -187,24 +204,7 @@ btnMore.setAttribute: dataContactId, tmpObj.id;
 
 //Generate id of each contact
 
-function generateId(){  
-     
-    //let key_int = localStorage.length + 1;
-    //key.id = key_int;
 
-    try{
-   if(localStorage[tmpObjs].length === 0){ return 1;
-    }else{
-      var contact_int = localStorage.length - 1;
-        return tmpObj.id = contact_int + 1;
-      }
-          } catch (e) {
-  if (e !==  tmpObj.id) {
-  alert('Error data');
- }
-}
-
-}
 
 function saveContact(id, form) {
 
@@ -254,6 +254,9 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
 
   // Re-fetch bookmarks
   initContacts(); 
+	 
+alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
+    window.location.reload();	 
  }else{
  
  
@@ -300,9 +303,11 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
   // Re-fetch bookmarks
   initContacts();
 	 
+alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
+    window.location.reload();	 
+	 
  }	 
-    alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
-    window.location.reload();
+    
 	 
 	 
 } 
