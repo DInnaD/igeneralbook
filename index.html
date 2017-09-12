@@ -101,7 +101,7 @@ function validate_form ( )
 		<label for="phone">Extra Phone:</label><input type="text" name="phoneExtra" value="" id="phoneEdit"><br>
             <label for="email">E-mail:</label><input type="text" name="email" value="" id="emailEditExstra"><br>
 		<label for="email">Extra E-mail:</label><input type="text" name="emailExtra" value="" id="emailEditExtra"><br>
-            <input type="button" onclick="saveContact(document.getElementById('form2'))" name="submit" value="Add contact" id="vvod">
+            <input type="button" onclick="saveContact(document.getElementById('form2'))" name="submit" value="Edit contact" id="editSave">
         </form>
     </div>
 </div>
@@ -175,15 +175,19 @@ function generateId(){
 }	
 let modal2 = document.getElementById("form2");
 let btnEdit = document.getElementById("addEditForm2");
-	let span2 = document.getElementsByClassName("close2")[0];	
+	
+let span2 = document.getElementsByClassName("close2")[0];
+	
 btnEdit.onclick = function () {
     modal2.style.display = "block"
 };
 span.onclick = function () {
     modal2.style.display = "none"
 };
+let saveBtn = getElementById('editSave'); 	
 btnEdit.setAttribute: dataContactId, tmpObj.id;
 btnEdit.addEditfForm2.getElementById('click', saveContact);
+	
 	
 
 
@@ -367,14 +371,11 @@ let block2 = document.getElementById('contactListMore');
     }
   }
 }
-/*function (parent=block-id contKist,content=innerhtml) {
-        let li = doc.createElement('li');
-        li.innerHTML = content;
-        parent.appendChild(li);	*/
+
 	
-function initContacts() {
+function initContacts(dataClientId) {
 let tmpObjs = localStorage['tmpObjs'];
-let dataClientId;	
+//let dataClientId;	
 	//// Get bookmarks from localStorage
   //let mpObjs = JSON.parse(localStorage.getItem('tmpObjs'));//??????????????????///
 let block = document.getElementById('contactsList');
@@ -514,19 +515,19 @@ function validateForm(name1, surname, phone, phoneExtra, email, emailExtra, url,
 	box-sizing: border-box;
 }
 
-#conactsList {
+#conactsList, #conactList, #conactListMore {
   list-style-type: none;
   padding: 0;
   margin: 0;
 	box-sizing: border-box;
 }
-	#conactsList li {
+#conactsList, #conactList, #conactListMore li {
     background-color: #333;
 	}
-	#conactsList li.header {
+#conactsList, #conactList, #conactListMore li.header {
 		background-color: #e2e2e2;
 	}
-#conactsList li a {
+#conactsList, #conactList, #conactListMore li a {
  /* border: 1px solid #ddd;*/
   margin-top: -1px; /* Prevent double borders */
   background-color: #333;
@@ -538,16 +539,33 @@ padding: 6.5px;
 	  box-sizing: border-box;
 }
 
-#conactsList li a.header {
+#conactsList, #conactList, #conactListMore li a.header {
   background-color: #e2e2e2;
   cursor: default;
 	box-sizing: border-box;
 }
 
-#conactsList li a:hover:not(.header) {
+#conactsList, #conactList, #conactListMore li a:hover:not(.header) {
   background-color: #eee;
 	box-sizing: border-box;
 }
+
+
+.close2, .close{
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#vvod, #editSave {
+    font-size: 18px;
+    font-family: "Arial";
+    border: 1px;
+    solid-color: red;
+    padding: 10px;
+    border-radius: 5px;
+}	
 </style>  
   
 
