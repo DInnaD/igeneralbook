@@ -208,7 +208,7 @@ btnEdit.addEditfForm2.getElementById('click', saveContact);
 
 
 
-function saveContact(id, form) {
+function saveContact(form) {
 //let id = tmpObj.id;//
 /* let id = this.getAttribute('id');
 
@@ -254,14 +254,15 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     // Re-set back to localStorage
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
   }
-  // Clear form
-  document.getElementById('form2').reset();
+  
+	 
+alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
+    window.location.reload();	
+    // Clear form
+  document.getElementById('form2').reset();//form2
 
   // Re-fetch bookmarks
   initContacts(); 
-	 
-alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
-    window.location.reload();	 
  }else{
  */
  
@@ -309,15 +310,15 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     // Re-set back to localStorage
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
  }  
+
+	 
+alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
+    window.location.reload();	 
   // Clear form
   document.getElementById('form').reset();
 
   // Re-fetch bookmarks
-  initContacts();
-	 
-alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
-    window.location.reload();	 
-	 
+  initContacts();	 
  }	 
      
 } 
