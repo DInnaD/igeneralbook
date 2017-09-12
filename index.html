@@ -207,7 +207,7 @@ let span = document.getElementsByClassName("close")[0];
 
 
 function saveContact(id, form) {
-
+//let id = tmpObj.id;//
  let id = this.getAttribute('id');
 
  if (typeof (id) == 'undefined') {
@@ -317,23 +317,52 @@ alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
     window.location.reload();	 
 	 
  }	 
-    
-	 
-	 
+     
 } 
 	
 
-function click(id) {
-  let = this.getAttribute('id');
+function click() {
+  let id = this.getAttribute('id');
   let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
   let currentContact;
-  tmpObjs.forEach(tmpObj) {
-    if (id === tmpObj.id) {
-      currentContact = tmpObj;
+  // Loop throught tmpObjs
+  for(var i =0;i < tmpObjs.length;i++){
+    if(tmpObjs[i].id == id){	
+  //tmpObjs.forEach(tmpObj) {
+   // if (id === tmpObj.id) {
+	    
+     return currentContact = tmpObj;//.id
     }
   }
+}
+function deleteContact(currentContact){
+	
+	currentContact.splice(i, 1);
+
+}
+	
+function deleteContact(id){
+	
+//let id = tmpObj.id;//
+let id = this.getAttribute('id');
+  // Get bookmarks from localStorage
+  let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
+  // Loop throught bookmarks
+  for(let i =0;i < tmpObjs.length;i++){
+    if(tmpObjs[i].id == id){
+      // Remove from array
+      tmpObjs.splice(i, 1);
+    }
+  }
+  // Re-set back to localStorage
+  localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
+
+  // Re-fetch bookmarks
+  initContacts();
+
+
 }	
-function initContacts(id) {
+function initContacts(currentContact) {
 let tmpObjs = localStorage['tmpObjs'];
 let block = document.getElementById('contactsList');
 tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
@@ -342,11 +371,11 @@ tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
                                   ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
                                   ' <a onclick="deleteContact(\''+tmpObj.name1+tmpObj.phone+'\')" class="btn btn-circle" href="#">Delete</a> ' +
                                   "</li>";
-  row.setAttribute() = dataClientId.element.id.elementId;
+  row.setAttribute() = dataClientId.tmpObj.id.elementId;
   block.appendChild(row);
-  row.addEventListener('click', click);
+  row.addEventListener('click', click);//instead aadMore
 })
-function moreContact(id) {
+function moreContact(currentContact) {
 let tmpObjs = localStorage['tmpObjs'];
 let block2 = document.getElementById('contactListMore');
 tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
@@ -357,7 +386,7 @@ tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
                                   "</li>";
   row.setAttribute() = dataClientId.tmpObj.id.tmpObjId;
   block.appendChild(row);
-  row.addEventListener('click', click);
+  //row.addEventListener('click', click);
 })
 	/*
     for (var i = 0; i < localStorage.length; i++) {
@@ -385,6 +414,37 @@ function searchContact() {
         }
     }
 }
+// Provide your own comparison
+    function compareFunc(){
+	    return 0;
+ 	    
+   }	
+	// Provide your own comparison
+function unique(name1, compareFunc){
+    	 // Get bookmarks from localStorage
+  let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
+
+  // Loop throught tmpObjs
+
+  for(let i =0;i < tmpObjs.length;i++){
+      tmpObj.name1.sort( compareFunc );
+        for(let i = 1; i < tmpObj.name1.length; ){
+            if( compareFunc(tmpObj.name1[i-1], tmpObj.name1[i]) === 0){//??????????true????????????
+                tmpObjs.splice(i, 1);
+            } else {
+                i++;
+            }
+        }
+        return tmpObj;
+  }	
+  // Re-set back to localStorage
+  localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
+
+  // Re-fetch bookmarks
+  initContacts();
+}	
+
+	
 //Validate Form
 function validateForm(name1, surname, phone, phoneExtra, email, emailExtra, url, urlExtra){
   if((!name1 || !surname || !email || !phone || !phoneExtra || !email || !emailExtra || !url){
