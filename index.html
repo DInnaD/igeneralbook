@@ -79,9 +79,9 @@ function validate_form ( )
     <div class="modal-content">
         <span class="close">&times;</span>
         <form action="" method="get" name="contact" id="form">
-            <label for="name1"></label> <input type="text" name="name1" value="11" id="name1" placeholder="Name"><br><br>
+            <label for="name1"></label><input type="text" name="name1" value="11" id="name1" placeholder="Name"><br><br>
             <label for="surname"></label><input type="text" name="surname" value="" id="surname" placeholder="Surname"><br><br>
-            <label for="phone"></label><input type="text" name="phone" value="" id="phone" placeholder="Phone:e"
+            <label for="phone"></label><input type="text" name="phone" value="" id="phone" placeholder="+38 099 025 53 45"
                 <a onclick="return addFieldP()" href="#">Extra Phone</a>
                 <div id="parentIdP"></div><br>
             <label for="email"></label><input type="text" name="email" value="" id="email" placeholder="E-mail">
@@ -224,7 +224,10 @@ function saveContact(id, form) {
     for(var i = 0; i<emails.length; i++){
         tmpObj.emails1.push(emails[i].value);
     }
-
+	 
+if(!validateForm(name1, surname, phone, phoneExtra, email, emailExtra, url, urlExtra)){
+    return false;
+  }
 //  let tmpObjs=[];
 //tmpObjs.push(tmpObj); 
 //   localStorage.setItem(tmpObjs, JSON.stringify(tmpObjs));
@@ -272,7 +275,9 @@ alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' edited into memory');
     for(var i = 0; i<emails.length; i++){
         tmpObj.emails1.push(emails[i].value);
     }
-   
+   if(!validateForm(name1, surname, phone, phoneExtra, email, emailExtra, url, urlExtra)){
+    return false;
+  }
  //let key_int = localStorage.length + 1;
   // tmpObj.id = key_int;   
 //let id = tmpObj.id;
@@ -375,6 +380,37 @@ function searchContact() {
         }
     }
 }
+//Validate Form
+function validateForm(name1, surname, phone, phoneExtra, email, emailExtra, url, urlExtra){
+  if((!name1 || !surname || !email || !phone || !phoneExtra || !email || !emailExtra || !url){
+    alert('Please fill in the form');
+    return false;
+  }
+
+  let expression_name1 = /^[a-zA-Z]+$/;
+  let regex_name1 = new RegExp(expression_name1);
+
+  let expression_surname = /^[a-zA-Z]+$/;
+  let regex_surname = new RegExp(expression_surname);
+
+
+  let expression_phone = /^\d[\d\(\)\ -]{4,14}\d$/;
+  let regex_phone = new RegExp(expression_phone);
+
+  let expression_email = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+  let regex_email = new RegExp(expression_email);
+
+  let expression_url = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  let regex_url = new RegExp(expression_url);
+
+
+  if(((!name1.match(regex_name1) || !surname.match(regex_surname)) || (!phone.match(regex_phone) || !phoneExtra.match(regex_phoneExtra))) || ((!email.match(regex_email) || !emailExtra.match(regex_emailExtra)) || (!url.match(regex_url) || !urlExtra.match(regex_urlExtra)))){
+    alert('Please use a valid data');
+    return false;
+  }
+
+  return true;
+}	
 </script> 
     
 <style>
