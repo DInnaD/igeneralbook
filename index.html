@@ -330,11 +330,11 @@ function click() {
 function initContacts() {
 let tmpObjs = localStorage['tmpObjs'];
 let block = document.getElementById('contactsList');
-tmpObjs.forEach(function(element, int, arr) {
+tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
   let row = document.createElement('li').
-  row.innerText = dataClientId = "<li>" + element.name1 + "" + element.phone + "" + ' <a onclick="moreContact id="addMoreForm3" class="btn btn-circle" href="#">More</a> ' +
+  row.innerText = dataClientId = "<li>" + tmpObj.name1 + "" + tmpObj.phone + "" + tmpObj.url + "" + tmpObj.urlExtra + "" + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.url+'">Visit</a> ' + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.urlExtra+'">Visit</a> ' + ' <a onclick="moreContact id="addMoreForm3" class="btn btn-circle" href="#">More</a> ' +
                                   ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
-                                  ' <a onclick="deleteContact(\''+element.name1+element.phone+'\')" class="btn btn-circle" href="#">Delete</a> ' +
+                                  ' <a onclick="deleteContact(\''+tmpObj.name1+tmpObj.phone+'\')" class="btn btn-circle" href="#">Delete</a> ' +
                                   "</li>";
   row.setAttribute() = dataClientId.element.id.elementId;
   block.appendChild(row);
@@ -343,11 +343,11 @@ tmpObjs.forEach(function(element, int, arr) {
 function moreContact() {
 let tmpObjs = localStorage['tmpObjs'];
 let block2 = document.getElementById('contactListMore');
-tmpObjs.forEach(function(tmpObj, int, arr) {
+tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
   let row = document.createElement('li').
-  row.innerText = dataClientId = "<li>" + element.name1 + "" + element.surname + "" + element.name + "" + element.email + "" + ' <a onclick="moreContact id="" class="btn btn-circle" href="#">Back</a> ' +
+  row.innerText = dataClientId = "<li>" + tmpObj.name1 + "" + tmpObj.surname + "" + tmpObj.url + "" + tmpObj.urlExtra + "" + tmpObj.phone + "" + tmpObj.phoneExtra + "" + tmpObj.email + "" + tmpObj.emailExtra + "" + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.url+'">Visit</a> ' + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.urlExtra+'">Visit</a> ' + ' <a onclick="moreContact id="addMoreForm3" class="btn btn-circle" href="#">More</a> ' +
                                   ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
-                                  ' <a onclick="deleteContact(\''+element.name1+element.surname+element.phone+element.email+'\')" class="btn btn-circle" href="#">Delete</a> ' +
+                                  ' <a onclick="deleteContact(\''+tmpObj.name1+tmpObj.surname+tmpObj.phone+tmpObj.email+'\')" class="btn btn-circle" href="#">Delete</a> ' +
                                   "</li>";
   row.setAttribute() = dataClientId.tmpObj.id.tmpObjId;
   block.appendChild(row);
