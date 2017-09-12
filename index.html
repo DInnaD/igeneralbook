@@ -21,6 +21,24 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<script type="text/javascript">
+<!--
+
+function validate_form ( )
+{
+	valid = true;
+
+        if (( document.form.name1.value || document.form.phone.value) == "" )
+        {
+                alert ( "Please, feel full 'Required Name and Phone data '." );
+                valid = false;
+        }
+
+        return valid;
+}
+
+//-->
+</script>
 </head>
 <body  onload="initCntacts()">
 	
@@ -85,10 +103,18 @@
             <label for="emale">E-mail:</label><input type="text" name="email" value="" id="emaleEdit">
                 <a onclick="return EaddField()" href="#">Add E-male</a>
                 <div id="EparentId"></div><br>
-            <input type="button" onclick="saveContact(document.getElementById('form'))" name="submit" value="Add contact" id="vvod">
+            <input type="button" onclick="saveContact(document.getElementById('form2'))" name="submit" value="Add contact" id="vvod">
         </form>
     </div>
 </div>
+<div id="form3" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="formMore">
+		<ul id="conactListMore">
+        </div>
+    </div>
+</div>	
  
 <script>
 /*
@@ -119,28 +145,41 @@ let tmpObj = {
 
 
 
-	
+let span = document.getElementsByClassName("close")[0];		
 let modal = document.getElementById("form1");
-let modal = document.getElementById("form2");	
-let btnEdit = document.getElementById("addEdit");	
-btnEdit.setAttribute: dataContactId, tmpObj.id;
-btnEdit.addEdit.getElementById('click', saveContact);	
-let btnMore = document.getElementById("addMore");	
-btnMore.setAttribute: dataContactId, tmpObj.id;	
+//let btn = document.getElementById("add");	
 
-let span = document.getElementsByClassName("close")[0];
-btnEdit.onclick = function () {
-    modal.style.display = "block"
-};
 btn.onclick = function () {
     modal.style.display = "block"
-};
-btnMore.onclick = function () {
-    modal.style.display = "block"
-};//init without
+};	
 span.onclick = function () {
     modal.style.display = "none"
 };
+	
+let modal2 = document.getElementById("form2");
+let btnEdit = document.getElementById("addEditForm2");
+btnEdit.onclick = function () {
+    modal2.style.display = "block"
+};
+span.onclick = function () {
+    modal2.style.display = "none"
+};
+btnEdit.setAttribute: dataContactId, tmpObj.id;
+btnEdit.addEditfForm2.getElementById('click', saveContact);
+	
+
+
+let modal3 = document.getElementById("form3");
+btnMore.onclick = function () {
+    modal3.style.display = "block"
+};//init without
+span.onclick = function () {
+    modal3.style.display = "none"
+};
+	
+let btnMore = document.getElementById("addMoreForm3");	
+btnMore.setAttribute: dataContactId, tmpObj.id;	
+
 
 	
 
@@ -211,7 +250,7 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
     localStorage.setItem('tmpObjs', JSON.stringify(tmpObjs));
   }
   // Clear form
-  document.getElementById('form').reset();
+  document.getElementById('form2').reset();
 
   // Re-fetch bookmarks
   initContacts(); 
@@ -262,35 +301,49 @@ localStorage.setItem("tmpObjs", JSON.stringify(tmpObjs));
   initContacts();
 	 
  }	 
-    alert('Contact ' + tmpObj.name + ' added to memory');
+    alert('Contact ' + tmpObj.name1 + tmpObj.phone + ' added to memory');
     window.location.reload();
 	 
 	 
 } 
+	
+function click() {
+  let = this.getAttribute('id');
+  let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
+  let currentContact;
+  tmpObjs.forEach(tmpObj) {
+    if (id === tmpObj.id) {
+      currentContact = tmpObj;
+    }
+  }
+}	
 function initContacts() {
 let tmpObjs = localStorage['tmpObjs'];
 let block = document.getElementById('contactsList');
 tmpObjs.forEach(function(element, int, arr) {
   let row = document.createElement('li').
-  row.innerText = dataClientId = "<li>" + element.name + "" + element.phone + "" + ' <a onclick="moreContact id="addMore" class="btn btn-circle" href="#">More</a> ' +
-                                  ' <a onclick="editContact id="addEdit" class="btn btn-circle" href="#">Edit</a> ' + 
-                                  ' <a onclick="deleteBookmark(\''+element.name+element.phone+'\')" class="btn btn-circle" href="#">Delete</a> ' +
+  row.innerText = dataClientId = "<li>" + element.name1 + "" + element.phone + "" + ' <a onclick="moreContact id="addMoreForm3" class="btn btn-circle" href="#">More</a> ' +
+                                  ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
+                                  ' <a onclick="deleteContact(\''+element.name1+element.phone+'\')" class="btn btn-circle" href="#">Delete</a> ' +
                                   "</li>";
   row.setAttribute() = dataClientId.element.id.elementId;
   block.appendChild(row);
   row.addEventListener('click', click);
 })
+function moreContact() {
+let tmpObjs = localStorage['tmpObjs'];
+let block2 = document.getElementById('contactListMore');
+tmpObjs.forEach(function(tmpObj, int, arr) {
+  let row = document.createElement('li').
+  row.innerText = dataClientId = "<li>" + element.name1 + "" + element.surname + "" + element.name + "" + element.email + "" + ' <a onclick="moreContact id="" class="btn btn-circle" href="#">Back</a> ' +
+                                  ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
+                                  ' <a onclick="deleteContact(\''+element.name1+element.surname+element.phone+element.email+'\')" class="btn btn-circle" href="#">Delete</a> ' +
+                                  "</li>";
+  row.setAttribute() = dataClientId.tmpObj.id.tmpObjId;
+  block.appendChild(row);
+  row.addEventListener('click', click);
+})
 
-function click() {
-  let = this.getAttribute('id');
-  let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
-  let currentContact;
-  tmpObjs.forEach(element) {
-    if (id === element.id) {
-      currentContact = element;
-    }
-  }
-}
 	/*
     for (var i = 0; i < localStorage.length; i++) {
         var key1 = localStorage.key(i);
