@@ -375,16 +375,19 @@ tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
   block.appendChild(row);
   row.addEventListener('click', click);//instead aadMore
 })
+	//let btnMore = document.getElementById("addMoreForm3");//instead click row	
+//btnMore.setAttribute: dataContactId, tmpObj.id;	
+
 function moreContact(currentContact) {
 let tmpObjs = localStorage['tmpObjs'];
 let block2 = document.getElementById('contactListMore');
 tmpObjs.forEach(function(tmpObj, int, tmpObjs) {
   let row = document.createElement('li').
-  row.innerText = dataClientId = "<li>" + tmpObj.name1 + "" + tmpObj.surname + "" + tmpObj.url + "" + tmpObj.urlExtra + "" + tmpObj.phone + "" + tmpObj.phoneExtra + "" + tmpObj.email + "" + tmpObj.emailExtra + "" + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.url+'">Visit</a> ' + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.urlExtra+'">Visit</a> ' + ' <a onclick="moreContact id="addMoreForm3" class="btn btn-circle" href="#">More</a> ' +
+  row.innerText = dataClientId = "<li>" + tmpObj.name1 + "" + tmpObj.surname + "" + tmpObj.url + "" + tmpObj.urlExtra + "" + tmpObj.phone + "" + tmpObj.phoneExtra + "" + tmpObj.email + "" + tmpObj.emailExtra + "" + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.url+'">Visit</a> ' + ' <a class="btn btn-default" target="_blank" href="'+tmpObj.urlExtra+'">Visit</a> ' + ' <a onclick="compareContact id="addCompareForm3" class="btn btn-circle" href="#">Compare</a> ' +
                                   ' <a onclick="editContact id="addEditForm2" class="btn btn-circle" href="#">Edit</a> ' + 
                                   ' <a onclick="deleteContact(\''+tmpObj.name1+tmpObj.surname+tmpObj.phone+tmpObj.email+'\')" class="btn btn-circle" href="#">Delete</a> ' +
                                   "</li>";
-  row.setAttribute() = dataClientId.tmpObj.id.tmpObjId;
+  row.setAttribute() = dataClientId.tmpObj.id.elementId;
   block.appendChild(row);
   //row.addEventListener('click', click);
 })
@@ -414,13 +417,15 @@ function searchContact() {
         }
     }
 }
+	
+let btnCompare = document.getElementById("addCompareForm3");		
 // Provide your own comparison
     function compareFunc(){
 	    return 0;
  	    
    }	
 	// Provide your own comparison
-function unique(name1, compareFunc){
+function compareContact(name1, compareFunc){
     	 // Get bookmarks from localStorage
   let tmpObjs = JSON.parse(localStorage.getItem('tmpObjs'));
 
@@ -442,6 +447,9 @@ function unique(name1, compareFunc){
 
   // Re-fetch bookmarks
   initContacts();
+	
+alert('Contact ' + tmpObj.name1 + ' compared and deleted from memory');
+    window.location.reload();		
 }	
 
 	
