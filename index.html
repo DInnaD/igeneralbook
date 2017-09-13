@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
+	<head>
 	<title>MileTracker</title>
 	<!-- jQuery mobile, jQuery UI, custom stylesheets -->
 	
@@ -12,23 +12,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	<script src="js/script.js"></script><!--script			$(function(){
+	<script src="js/script.js"></script>
+		<script>
+			$(function(){
 				$('.date').each(function(){
 					$(this).datepicker();
 				});
 			});
-		</script-->
-		<!--script>
-	
-	function validateForm() {
-var isValid = true;
-$('.form-field').each(function() {
-if ( $(this).val() === '' )
-isValid = false;
-});
-return isValid;
-}
-</script-->
+		</script>
 	</head>
 	<body>
 		<!-- #home Page -->
@@ -140,7 +131,7 @@ ul{
 	color:red;
 }
 	</style>
-	<script type="text/javascript">
+	<script>
 		// Need to use pageinit, not ready be/c we want the index page to run once!
 $(document).one('pageinit', function(){
 	// Display runs
@@ -235,7 +226,7 @@ $(document).one('pageinit', function(){
 		// Create 'run' object
 		var update_run = {
 			date: date,
-			miles: miles
+			miles: parseFloat(miles)
 		};
 		
 		// Add run to runs array
@@ -315,10 +306,8 @@ $(document).one('pageinit', function(){
 		$('#editDate').val(localStorage.getItem('currentDate'));
 	 }
 });
-
 	</script>
 
-</div>
 	
 </body>
 </html>
