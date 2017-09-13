@@ -147,61 +147,9 @@ $(document).one('pageinit', function(){
 	$('#stats').on('tap','#editLink', setCurrent);
 	
 	// Clear Handler
-	$('#clearContacts').on('tap', clearContacts);
-	/*
-	$(document).on('pageinit', function(){
-
-
-    //showContacts();
-  showContacts();
-
-    //add handler
-    $('#submitAdd').one('tap', addContact);
-    //edit handleer
-    $('#submitEdit').on('tap', editContact);
-    //delete contact
-    $('#search').on('tap', '#deleteLink', deleteContact);
-    //setcurrent
-    $('#search').on('tap', '#editLink', function(event) {
-      //event.preventDefault();
-      // Store data in localstorage 
-      localStorage.setItem('currentName', $(this).data('name'));
-      localStorage.setItem('currentPhone', $(this).data('phone'));
-      localStorage.setItem('currentUrl', $(this).data('url'));
-      localStorage.setItem('currentInfo', $(this).data('info'));
-      
-      //set form value
-      $('#editName').val(localStorage.getItem('currentName'));
-      $('#editPhone').val(localStorage.getItem('currentPhone'));
-      $('#editUrl').val(localStorage.getItem('currentUrl'));
-      $('#editInfo').val(localStorage.getItem('currentInfo'));
-    });
-	*/
-	/*
-	 // show contacts
-  
-  function showContacts(){
-    let contacts = getontactsObject();
-    if(contacts != '' && contacts != null){
-      for (let i = 0; i < contacts.length; i++) {
-        $('#search').append('<li class="ui-body-inherit ui-li-static"><strong>Name:</strong>'+
-          contacts[i]["name"]+
-            '<br/><strong>Phone:</strong>'+contacts[i]["phone"] +
-            '<br/><strong>Url:</strong>'+contacts[i]["url"] +
-            '<br/><strong>Info:</strong>'+contacts[i]["info"] +
-            'm<div class="controls">'+
-              '<a target="_blank" href="data-info="'+ contacts[i]["url"]+'"">Visit</a> | <a href="#edit" id="editLink" data-name="'+ contacts[i]["name"]+'" data-phone="'+ contacts[i]["phone"]+'" data-url="'+ contacts[i]["url"]+'" data-info="'+ contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+ contacts[i]["name"]+'" data-phone="'+ contacts[i]["phone"]+'" data-url="'+ contacts[i]["url"]+'" data-info="'+ contacts[i]["info"]+'" onClick="return confirm(\' Are you sure?\')">Delete</a>'
-            +'</div></li>')
-      };
-    $('#home').bind('pageInit', function(event) {
-      $('search').listView('refresh');
-    });
-    }
-    else{
-        $('#search').html('<p>You have no logged contact</p>');
-    }
-  }
-	*/
+	$('#clearRuns').on('tap', clearRuns);
+	
+	
 	// Show all stats on homepage/
 	 function showRuns(){
 		// get runs string from localStorage
@@ -221,40 +169,7 @@ $(document).one('pageinit', function(){
 			$('#stats').html('<p>You have no logged runs</p>');
 		}
 	 }
-		//mask
-  $(":input").inputmask();
-
-$("#addphone").inputmask({"mask": "(999) 999-9999"});
-$("#editphone").inputmask({"mask": "(999) 999-9999"});
-	 /*
-	  // Add a contact
-  
-    function addContact(){
-    //get the values
-    let name = $('#addName').val();
-    let phone = $('#addPhone').val();
-    let url = $('#addUrl').val();
-    let info = $('#addInfo').val();
-    //create contact boject
-    let contact = {
-        
-        name:name,
-        phone:phone,
-        url:url,
-        info:info
-    }
-    //get current contact
-    let contacts = getContactsObject();
-    //add contact to contacts array
-    contacts.push(contact);
-    alert('Contact added');
-    //stringify
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-    //redirect
-    window.location.href =  'index.html';
-    return false;
-  }
-	 */
+	 
 	// Add A Run
 	 function addRun(){
 		// Get form values
@@ -283,48 +198,8 @@ $("#editphone").inputmask({"mask": "(999) 999-9999"});
 		
 		return false;
 	 }
-	 /*/ edit a contact
-  
-    function editContact(){
-      //get current values
-      currentName = localStorage.getItem('currentName');
-      currentPhone = localStorage.getItem('currentPhone');
-      //currentUrl = localStorage.getItem('currentUrl');
-     // currentInfo = localStorage.getItem('currentInfo');
-      
-      //get current contact
-    let contacts = getContactsObject();
-    for (let i = 0; i < contacts.length; i++) {
-      if((contacts[i]['phone'] == currentPhone && contacts[i]['name'] == currentName) && (contacts[i]['info'] == currentInfo && contacts[i]['url'] == currentUrl)){
-        contacts.splice(i, 1);
-      }
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    };
-    //get the values
-    
-    let name = $('#editName').val();
-    let phone = $('#editPhone').val();
-    //let url = $('#editdUrl').val();
-    //let info = $('#editInfo').val();
-    //create contact boject
-    let contact_update = {
-        
-        name:name,
-        phone:phone
-        //, url:url,
-        //info:info
-    }
-    //add contact to contacts array
-    contacts.push(contact_update);
-    alert('Contact updated');
-    //stringify
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-    //redirect
-    window.location.href =  'index.html';
-    return false;
-  }
-  
-	 */
+	 
+	 
 	 // Edit A Run
 	 function editRun(){
 		// Get current data
@@ -348,7 +223,7 @@ $("#editphone").inputmask({"mask": "(999) 999-9999"});
 		// Create 'run' object
 		var update_run = {
 			date: date,
-			miles: miles
+			miles: parseFloat(miles)
 		};
 		
 		// Add run to runs array
@@ -365,39 +240,12 @@ $("#editphone").inputmask({"mask": "(999) 999-9999"});
 		return false;
 	 }
 	 
-	 function clearContacts(){
-		localStorage.removeItem('contacts');
-		$('#stats').html('<p>You have no logged Contacts</p>');
+	 function clearRuns(){
+		localStorage.removeItem('runs');
+		$('#stats').html('<p>You have no logged runs</p>');
 	 }
-	  /*/ delete a contact
-  
-    function deleteContact(){
-     // Store data in localstorage 
-      localStorage.setItem('currentPhone', $(this).data('phone'));
-      localStorage.setItem('currentName', $(this).data('name'));
-      //localStorage.setItem('currentUrl', $(this).data('url'));
-      //localStorage.setItem('currentInfo', $(this).data('info'));
-      //get current values
-      currentPhone = localStorage.getItem('currentPhone');
-      currentName = localStorage.getItem('currentName');
-      //currentUrl = localStorage.getItem('currentUrl');
-      //currentInfo = localStorage.getItem('currentInfo');
-      //get current contact
-    let contacts = getContactsObject();
-    for (let i = 0; i < contacts.length; i++) {
-      //if((contacts[i]['phone'] == currentPhone && contacts[i]['name'] == currentName) && (contacts[i]['info'] == currentInfo && contacts[i]['url'] == currentUrl)){
-       if(contacts[i]['name'] == currentName && contacts[i]['phone'] == currentPhone){
-      
-	    contacts.splice(i, 1);
-      }
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    };
-    alert('Contact deleted');
-    //redirect
-    window.location.href =  'index.html';
-    return false;
-  }
-	 */
+	 
+	 
 	 // Delete A Run
 	 function deleteRun(){
 		// Set stringified object to localStorage
@@ -425,18 +273,8 @@ $("#editphone").inputmask({"mask": "(999) 999-9999"});
 		
 		return false;
 	 }
-/*/	
-	 function getContactsObject(){
-      //set contacts array
-      let contacts = new Array();
-      //get current array from localstorage
-      let currentContacts = localStorage.getItem('contacts');
-      if(currentContacts != null ){
-          let  contacts = JSON.parse(currentContacts);
-          
-      }
-	return contacts.sort(function(a,b){return new Name(b.name) - new Name(b.name)});
-		 */
+	 
+	 
 	// Get the current runs object
 	 function getRunsObject(){
 		// Set runs array
@@ -451,38 +289,15 @@ $("#editphone").inputmask({"mask": "(999) 999-9999"});
 		}
 		
 		// Return runs object; newest run first by date
-		
-      
-		 return runs.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
+		return runs.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
 	 }
-	 /*/ Set the current clicked miles and date
-	 function setCurrent(){
-		// Set local Storage items
-		 	// Set local Storage items
-	  localStorage.setItem('currentName', $(this).data('name'));
-      localStorage.setItem('currentPhone', $(this).data('phone'));
-		 //localStorage.setItem('currentUrl', $(this).data('url'));
-      //localStorage.setItem('currentInfo', $(this).data('info'));
-		//localStorage.setItem('currentMiles', $(this).data('miles'));
-		//localStorage.setItem('currentDate', $(this).data('date'));
-		//set form value
-      $('#editName').val(localStorage.getItem('currentName'));
-      $('#editPhone').val(localStorage.getItem('currentPhone'));
-		// $('#editUrl').val(localStorage.getItem('currentUrl'));
-     // $('#editInfo').val(localStorage.getItem('currentInfo'));
-		// Insert form fields
-		//$('#editMiles').val(localStorage.getItem('currentMiles'));
-		//$('#editDate').val(localStorage.getItem('currentDate'));
-	 }*/
+	 
 	// Set the current clicked miles and date
 	 function setCurrent(){
 		// Set local Storage items
-		 	// Set local Storage items
-	  
 		localStorage.setItem('currentMiles', $(this).data('miles'));
 		localStorage.setItem('currentDate', $(this).data('date'));
-		//set form value
-      
+		
 		// Insert form fields
 		$('#editMiles').val(localStorage.getItem('currentMiles'));
 		$('#editDate').val(localStorage.getItem('currentDate'));
