@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+	<head>
+	<title>iGeneral Book</title>
+	<!-- jQuery mobile, jQuery UI, custom stylesheets -->
+	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- jQuery, jQuery UI, jQuery mobile, custom scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="js/script.js"></script>
+		<!--script>
+			$(function(){
+				$('.date').each(function(){
+					$(this).datepicker();
+				});
+			});
+		</script-->
+	</head>
+	<body>
+		<div id="mymap" style="position: absolute !important; top: 0px; background-color: none !important;"></div>
+	<div id="contactform" class="ui-mobile-viewport ui-overlay-a" style="
+    overflow: none !important;">
+		<div class="brand">
+      <a href="#" id="toggler" style="color: #42DCA3;" title="Click what to do"><i aria-hidden="true" class="fa fa-info-circle" style="35px !important;"></i></a>General Book
+    </div><!--"brand"-->
+    <div id="box" style="display: none; text-align: center; position: relative;">
+      <h5></h5>
+      <p style="color: #fff !important; font-size: 0.8em;">Instruction<br></p>
+    </div>
+		<!-- #home Page -->
+		<div data-role="page" id="home" style="position: relative !important; background-color: none !important!;">
+			<header data-role="header" data-theme="b">
+				
+			</header>
+			
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-transition="none" data-icon="home"></a></li>
+					<li><a href="#add" data-transition="none" data-icon="plus"></a></li>
+				</ul>
+			</div>
+			
+			<div data-role="content">
+				
+				
+				<ul id="stats" data-role="listview" data-filter="true" data-filter-placeholder="Search.." data-inset="true"></ul>
+				<br>
+				<button id="clearContacts" onclick="return confirm('Are You Sure?')" data-theme="b">Clear iGeneralBook</button>
+				<br>
+				<!--button id="compareContacts" onclick="return confirm('Are You Sure delete contact with the same phone data?')" data-theme="b">Clear the same contact</button-->
+			
+			</div>
+		
+			<footer id="footer" data-role="footer" data-theme="b">
+				<h4>iGeneral Book 2017</h4>
+			</footer>
+		</div>
+		
+		<!-- ADD PAGE -->
+		<div data-role="page" id="add" style="position: relative !important; background-color: none !important!;">
+			<header data-role="header" data-theme="b">
+				
+			</header>
+			
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-transition="none" data-icon="home"></a></li>
+					<li><a href="#add" data-transition="none" data-icon="plus"></a></li>
+				</ul>
+			</div>
+			
+			<div data-role="content">
+			<p>Add Contact</p>
+			<form id="addForm">
+				<label for="addName"></label>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="addName" required="required" placeholder="Enter Name" class="signupForm form-field" placeholder="Enter Name" /> 
+</div>
+      
+      <label for="addPhone"></label>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" id="addPhone" placeholder="Enter Phone" class="signupForm form-field" />
+</div>
+      <label for="addUrl"></label>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="addUrl" placeholder="Enter Url" pattern="^\https://\d{1000}$" required="required" class="signupForm form-field" placeholder="Enter Url"/> 
+</div>
+      <label for="addInfo"></label>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" data-role="info"  id="addInfo" placeholder="Enter Info" class="signupForm form-field" placeholder="Enter Info"/>
+</div>				
+				<button id="submitAdd">Submit</button>
+			</form>
+			</div>
+		
+			<footer data-role="footer" data-theme="b">
+				<h4>iGeneral Book 2017</h4>
+			</footer>
+		</div>
+		
+		<!-- EDIT PAGE -->
+		<div data-role="page" id="edit" style="position: relative !important;">
+			<header data-role="header" data-theme="b">
+				
+			</header>
+			
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-transition="none" data-icon="home"></a></li>
+					<li><a href="#add" data-transition="none" data-icon="plus"></a></li>
+				</ul>
+			</div>
+			
+			<div data-role="content">
+			<p>Edit Contact</p>
+			<form id="editForm">
+				
+				 <label for="editName"></label>
+     <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="editName" required="required" class="signupForm form-field" placeholder="Enter Name" /> 
+</div>
+      <label for="editPhone"></label><!--pattern="^\+380-\d{3}-\d{2}-\d{2}$" pattern="^\+38-\d{10}$" pattern="^\https://\d{1000}$"-->
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="tel" placeholder="+38-1234567890" pattern="^\+38-\d{10}$" required="required" data-role="phone" class="signupForm form-field" id="editPhone" />
+</div>
+       <label for="editUrl"></label>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" class="form-field" id="editUrl"  required="required" class="signupForm form-field" placeholder="Enter Url" /> 
+</div>
+      <label for="editInfo"></label>
+      <div class="ui-btn ui-btn-b ui-corder-all"><input type="text" data-role="info" class="form-field" id="editInfo" class="signupForm form-field" placeholder="Enter Info" />
+</div>
+	<button id="submitEdit" >Update</button>
+			</form>
+			</div>
+		
+			<footer data-role="footer" data-theme="b">
+				<h4>iGeneral Book 2017</h4>
+			</footer>
+		</div>
+</div><!--black-->	
+		<!-- #home Page >
+		<div data-role="page" id="homeMore">
+			<header data-role="header" data-theme="b">
+				<h1>iGeneral Book</h1>
+			</header>
+			
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-transition="none" data-icon="home"></a></li>
+					<li><a href="#add" data-transition="none" data-icon="plus"></a></li>
+				</ul>
+			</div>
+			
+			<div data-role="content">
+				
+				
+				<ul id="statsMore" data-role="listviewMore" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true"></ul>
+				<br>
+			</div>
+		
+			<footer data-role="footer" data-theme="b">
+				<h4>iGeneral Book 2017</h4>
+			</footer>
+		</div-->
+
+		
+	  <!--style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 19px 10px 2px 50px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+</style--> 
+	<style type="text/css">
+	 html, body{
+      width: 100% !important;
+     
+      margin: 0;
+      padding: 0;
+    }
+    #contactform { 
+  position: relative; 
+  z-index: 1; 
+  width: auto;
+  margin: 80px auto 0;
+  padding: 40px;
+  background: black;
+  height: auto;
+  opacity: .60;
+ 
+      text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        
+        
+        line-height: normal;
+        color: #fff; 
+}	
+		body{
+	text-align:center;
+}
+ul{
+	display:block;
+}
+.controls{
+	float:right;
+}
+#stats p{
+	color:red;
+}
+		
+		
+		
+		
+		
+		
+		
+		
+ #mymap {
+  width: 100%;
+  height: 100%;
+  position:absolute;
+ margin:0;
+ padding:0;
+  top: 0; 
+  left: 0;
+bottom: 0;
+right: 0;   
+  z-index: 0; 
+  
+}
+      @media only screen and (max-width: 360px) {
+  h1 {
+    font-size: 3em;
+  }
+  p {
+    font-size: 0.6em;
+  }
+      #mymap {
+    position: absolute !important;
+    width: 100%;
+  height: 100%;
+    padding: 0px;
+  }
+}
+      @media \0screen {
+         #mymap {
+    position: absolute !important;
+    width: 100%;
+  height: 100%;
+    padding: 0px;
+  }
+  }
+	</style>
+		<!--style>
+@media screen and (orientation: landscape)
+jquery.mobile.min.css:3
+.ui-mobile .ui-page {
+    min-height: 300px;
+}
+jquery.mobile.min.css:3
+.ui-mobile .ui-page-active {
+    display: block;
+    overflow: visible;
+    /* overflow-x: hidden; */
+}
+jquery.mobile.min.css:3
+.ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page {
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    display: none;
+    border: 0;
+}
+jquery.mobile.min.css:3
+.ui-page {
+    outline: 0;
+}
+jquery.mobile.min.css:3
+.ui-mobile fieldset, .ui-page {
+    padding: 0;
+    margin: 0;
+}
+jquery.mobile.min.css:3
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    /* background-color: #f9f9f9; */
+    border-color: #bbb;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from body.ui-mobile-viewport.ui-overlay-a
+jquery.mobile.min.css:3
+.ui-mobile-viewport {
+    margin: 0;
+    overflow-x: visible;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+jquery.mobile.min.css:3
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    /* background-color: #f9f9f9; */
+    border-color: #bbb;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+(index):203
+body {
+    text-align: center;
+}
+style.css:7
+body {
+    font-family: sans-serif;
+    background-image: -moz-linear-gradient(30deg, $start 0%, $end 100%);
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, $start), color-stop(100%, $end));
+    background: -webkit-linear-gradient(30deg, $start 0%, $end 100%);
+    background: -o-linear-gradient(30deg, $start 0%, $end 100%);
+    background: -ms-linear-gradient(30deg, $start 0%, $end 100%);
+    background: linear-gradient(30deg, $start 0%, $end 100%);
+}
+jquery.mobile.min.css:3
+body, input, select, textarea, button, .ui-btn {
+    font-size: 1em;
+    line-height: 1.3;
+    font-family: sans-serif;
+}
+Inherited from html.ui-mobile
+jquery.mobile.min.css:3
+html {
+    font-size: 100%;
+}		
+		
+		
+		
+</style-->
+	<script>
+		// Need to use pageinit, not ready be/c we want the index page to run once!deleteContact
+$(document).one('pageinit', function(){
+	// Display contacts
+	showContacts();
+	// Add Stats Handler
+	$('#submitAdd').on('tap', addContact);
+	
+	// Edit Stats Handler
+	$('#submitEdit').on('tap', editContact);
+	
+		// Delete Stats Handler
+	$('#stats').on('tap','#deleteLink', deleteContact);
+	
+	$('#stats').on('tap','#moreLink', moreContact);
+	
+	// Set Current Stats Handler
+	$('#stats').on('tap','#editLink', setCurrent);
+	
+	
+	// Clear Handler
+	$('#clearContacts').on('tap', clearContacts);
+	
+	
+	// Show all stats on homepage/
+	 function showContacts(){
+		 //if
+		// get contacts string from localStorage
+		var contacts = getContactsObject();
+		
+		// Check if empty
+		if((contacts != '' && contacts != null) && contacts != undefined){
+			for(var i = 0;i < contacts.length;i++){
+				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
+				' <br><strong></strong>'+contacts[i]["phone"]+' <div class="controls">' +
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a href="#home" id="moreLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">More</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+			}
+			$('#home').bind('pageinit', function(){
+				$('#stats').listview('refresh');
+			});
+		} else {
+			$('#stats').html('<p>You have no logged contacts</p>');
+		}
+	 }
+	/*function scrollMore(){
+		$("a[href='#home']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+	
+}*/
+	
+	// More A contact
+	 function moreContact(){
+	 		// Set stringified object to localStorage
+		 // Store data in localstorage 
+     localStorage.setItem('currentPhone', $(this).data('phone'));
+      localStorage.setItem('currentName', $(this).data('name'));
+      localStorage.setItem('currentUrl', $(this).data('url'));
+      localStorage.setItem('currentInfo', $(this).data('info'));
+		//get current values
+      currentPhone = localStorage.getItem('currentPhone');
+      currentName = localStorage.getItem('currentName');
+      currentUrl = localStorage.getItem('currentUrl');
+      currentInfo = localStorage.getItem('currentInfo');
+		var contacts = getContactsObject();
+		if((contacts != '' && contacts != null) && contacts != undefined){
+		// Loop through contacts
+		for(var i = 0;i < contacts.length;i++){
+			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
+				
+				$('#stats').append('<li class="ui-body-inherit ui-li-static"><strong></strong>'+contacts[i]["name"]+
+				' <br><strong></strong>'+contacts[i]["phone"]+
+				' <br><strong></strong>'+contacts[i]["url"]+
+				' <br><strong></strong>'+contacts[i]["info"]+' <div class="controls">' +
+				'<a target="_blank" href="'+ contacts[i]["url"]+'">Visit</a> | <a target="_self" href="index.html" id="backLink">Back</a> | <a href="#edit" id="editLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'">Edit</a> | <a href="#" id="deleteLink" data-name="'+contacts[i]["name"]+'" data-phone="'+contacts[i]["phone"]+'" data-url="'+contacts[i]["url"]+'" data-info="'+contacts[i]["info"]+'" onclick="return confirm(\'Are You Sure?\')">Delete</a></li>');
+				}//if
+			}//for
+			$('#home').bind('pageinit', function(){
+				$('#stats').listview('refresh');
+			
+			});//func
+			//scrollMore();
+			$("a[href='#home']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+		
+			}//if null
+			
+		} //fmain //scrolldown
+	
+/*
+function validateForm() {
+var isValid = true;
+$('.form-field').each(function() {
+if ( $(this).val() === '' )
+isValid = false;
+});
+return isValid;
+}
+/*	
+function validateSignup(name, phone, url, info)
+{   
+    $.validator.addMethod(
+            "regex",
+            function(value, element, regexp) 
+            {
+                if (regexp.constructor != RegExp)
+                    regexp = new RegExp(regexp);
+                else if (regexp.global)
+                    regexp.lastIndex = 0;
+                return this.optional(element) || regexp.test(value);
+            },
+            "Please check your input."
+    );
+    $('.signupForm').validate(//????????????????????????????# to html either
+    {
+        onkeyup : false,
+        errorClass: "req_mess",
+        ignore: ":hidden",
+        validClass: "signup_valid_class",
+        errorClass: "signup_error_class",
+        rules:
+        {
+            name:
+            {
+                required: true,
+                //name: true,
+                regex: /^[a-zA-Z]+$/,
+            },
+           
+            phone:
+            {
+                required: true,
+                regex: /^[+-]{1}[0-9]{1,3}\-[0-9]{10}$/,
+            },
+            url:
+            {
+                required: true,
+                //url: true,
+                regex: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi,
+            },
+            info:
+            {
+                required: true,
+                //info: true,
+                regex: /^[a-zA-Z]+$/,
+            },
+        },
+        messages: 
+        {
+            name: 
+            {
+                required: 'You must enter a name',
+                regex: 'Please enter a valid name without spacial chars, ie, Name'
+            },
+       
+            phone: 
+            {
+                required: "Please enter your phone number",
+                regex: "e.g. +38-0000000000"    
+            },
+            url: 
+            {
+                required: 'You must enter a url',
+                regex: 'Please enter a valid url without spacial chars, ie, http://'
+            },
+            info: 
+            {
+                required: 'You must enter a info',
+                regex: 'Please enter a valid info without spacial chars, ie, Chars'
+            },
+        },
+        submitHandler: function (submitAdd, submitEdit)
+        {
+            return true;
+        }
+    });
+}
+*/
+	/*
+	function generateId(){
+	
+console.log(contact);
+try{
+   if(localStorage[contacts].length === 0){ return 1;
+		}else{
+ let contact_int = localStorage.length + 1;
+    contact.id = contact_int;
+    //console.log(contact.id);
+ let itemExists = document.getElementById(contact.id);
+    if(itemExists !== null) {
+      itemExists.remove();
+      }
+    	    } catch (e) {
+  if (e !==  contact.id) {
+  alert('Error data');
+ }
+ }
+ */
+	// Add A contact
+	 function addContact(){
+		 //let contact = {
+    //name: [],
+    //phone: [],
+    //url: [],
+    //info: [],
+    //id: []
+//}
+//generateId();
+	
+		 let name;
+		 let phone;
+		 let url;
+		 let info;
+	 
+		 
+		// Get form values
+		 name = $('#addName').val();
+		phone = $('#addPhone').val();
+		 url = $('#addUrl').val();
+    		info = $('#addInfo').val();
+		//let id = contact.id;
+		if((name != '' && name != null) && name != undefined){	 
+		 
+		// Create 'contact' object for passing into HTML5 local storage API
+		//validateForm();
+		//validateSignup(name, phone, url, info);
+		 
+		 
+		 var contact = {
+			 //id: id;
+			name: name,
+        phone: phone,
+        url: url,
+        info: info
+		};
+	
+		 
+		var contacts = getContactsObject();
+		
+		// Add contact to contacts array
+		contacts.push(contact);
+		
+		alert('contact Added');
+		
+		// Local storage values have to be strings
+		// Set stringified object to localStorage
+		localStorage.setItem('contacts', JSON.stringify(contacts));
+		
+		// Redirect to index page
+		window.location.href="index.html";
+		
+		
+		  }else{
+	 alert('Please, enter Name!');
+	 }
+		 return false;
+	 }
+	 
+	 
+	 // Edit A contact
+	 function editContact(){
+		//get current values
+      currentPhone = localStorage.getItem('currentPhone');
+      currentName = localStorage.getItem('currentName');
+      currentUrl = localStorage.getItem('currentUrl');
+      currentInfo = localStorage.getItem('currentInfo');
+		var contacts = getContactsObject();
+		
+		// Loop through contacts
+		for(var i = 0;i < contacts.length;i++){
+			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
+				contacts.splice(i,1);
+			}
+			localStorage.setItem('contacts',JSON.stringify(contacts));
+		}
+		// Get form values
+		var name = $('#editName').val();
+		var phone = $('#editPhone').val();
+		 let url = $('#editUrl').val();
+    		let info = $('#editInfo').val();
+		
+			
+		// Create 'contact' object
+		var update_contact = {
+			name: name,
+        phone: phone,
+        url: url,
+        info: info
+		};
+		
+		// Add contact to contacts array
+		contacts.push(update_contact);
+		
+		alert('contact Updated');
+		
+		// Set stringified object to localStorage
+		localStorage.setItem('contacts', JSON.stringify(contacts));
+		
+		// Redirect
+		window.location.href="index.html";
+		
+		return false;
+	
+	 }
+	 //function compareContacts(){}//*****************drop?????????????????/
+	 function clearContacts(){
+		localStorage.removeItem('contacts');
+		$('#stats').html('<p>You have no logged Contacts</p>');
+		 
+		 
+	 }
+	 
+	 
+	 // Delete A contact
+	 function deleteContact(){
+		// Set stringified object to localStorage
+		 // Store data in localstorage 
+      localStorage.setItem('currentPhone', $(this).data('phone'));
+      localStorage.setItem('currentName', $(this).data('name'));
+      localStorage.setItem('currentUrl', $(this).data('url'));
+      localStorage.setItem('currentInfo', $(this).data('info'));
+      //get current values
+      currentPhone = localStorage.getItem('currentPhone');
+      currentName = localStorage.getItem('currentName');
+      currentUrl = localStorage.getItem('currentUrl');
+      currentInfo = localStorage.getItem('currentInfo');
+		
+		var contacts = getContactsObject();
+		
+		// Loop through contacts
+		for(var i = 0;i < contacts.length;i++){
+			if((contacts[i].name == currentName && contacts[i].phone == currentPhone) && (contacts[i].url == currentUrl && contacts[i].info == currentInfo)){
+				contacts.splice(i,1);
+			}
+			localStorage.setItem('contacts',JSON.stringify(contacts));
+		}
+		
+		alert('contact Deleted');
+		
+		// Redirect
+		window.location.href="index.html";
+		
+		return false;
+	 }
+	 
+	 
+	// Get the current contacts object
+	 function getContactsObject(){
+		// Set contacts array
+		var contacts = new Array();
+		// Get current contacts from local storage; it will be returned as a default string
+		var currentContacts = localStorage.getItem('contacts');
+		
+		// Check localStorage for data
+		if(currentContacts != null){
+			// Set it to contacts
+			var contacts = JSON.parse(currentContacts);
+		}
+		
+		// Return contacts object; newest contact first by date
+		return contacts.sort(function(a, b){return new Date(b.date) - new Date(a.date)});
+	 }
+	 
+	// Set the current clicked 
+	 function setCurrent(){
+			// Set local Storage items
+	  localStorage.setItem('currentName', $(this).data('name'));
+      localStorage.setItem('currentPhone', $(this).data('phone'));
+      localStorage.setItem('currentUrl', $(this).data('url'));
+      localStorage.setItem('currentInfo', $(this).data('info'));
+      
+      //set form value
+      $('#editName').val(localStorage.getItem('currentName'));
+      $('#editPhone').val(localStorage.getItem('currentPhone'));
+      $('#editUrl').val(localStorage.getItem('currentUrl'));
+      $('#editInfo').val(localStorage.getItem('currentInfo'));
+	 }
+});
+	</script>
+<script>
+var map = null;
+// When the window has finished loading create our google map below
+google.maps.event.addDomListener(window, 'load', init);
+google.maps.event.addDomListener(window, 'resize', function() {
+    map.setCenter(new google.maps.LatLng(49.574036, 34.5113945));
+});
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('mymap'), {
+          center: {lat: 49.574036, lng: 34.5113945},
+          zoom: 6,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+       var infoWindow = new google.maps.InfoWindow({map: map});
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('The best sity!');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3AhxWKKpXIAi9-zWrP61IN-5viMwakzQ&callback=initMap">
+    </script>
+	
+</body>
+</html>
